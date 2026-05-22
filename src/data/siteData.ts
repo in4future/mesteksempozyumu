@@ -109,7 +109,7 @@ export const katilimPayi = {
     banka: "Vakıfbank / Ankara Şubesi",
     iban: "TR98 0001 5001 5800 7302 xxxxxx",
     swift: "VAKFTR2AXXX",
-    aciklamaSablon: "METESEM 2026 - Katılımcı Adı Soyadı - Bildiri ID"
+    aciklamaSablon: "METE-SEM 2026 - Katılımcı Adı Soyadı - Bildiri ID"
   },
   ucretler: [
     { category: "Akademisyen / Araştırmacı (Yüz Yüze)", fee: "1.500 TL", details: "Katılım belgesi, bildiri kitabı yayını, ikramlar ve çanta içeriği dahildir." },
