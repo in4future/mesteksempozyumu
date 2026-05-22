@@ -1,10 +1,10 @@
-// METESEM Site Verileri
+// MESTEK Site Verileri
 
 export const siteConfig = {
-  title: "METE-SEM'26",
+  title: "MESTEK'26",
   fullName: "1. Mesleki ve Teknik Eğitim Sempozyumu",
   slogan: "Eğitimden Endüstriye Bilginin Yolculuğu",
-  theme: "Mesleki ve Teknik Eğitim Sempozyumu – METE-SEM’26",
+  theme: "Mesleki ve Teknik Eğitim Sempozyumu – MESTEK'26",
   dates: {
     event: "5-6 Kasım 2026",
     location: "Gazi Üniversitesi, Ankara / TÜRKİYE",
@@ -14,13 +14,13 @@ export const siteConfig = {
     secretary: "Sempozyum Sekreterliği",
     address: "Gazi Üniversitesi Teknoloji Fakültesi İmalat Mühendisliği Bölümü, Teknikokullar, Ankara / Türkiye",
     phone: "0-312-202-xxxx",
-    email: "info@metesem.org",
-    web: "https://www.metesem.org",
+    email: "info@mestek.org",
+    web: "https://www.mestek.org",
     socials: {
-      facebook: "https://facebook.com/metesem",
-      linkedin: "https://linkedin.com/company/metesem",
-      instagram: "https://instagram.com/metesem",
-      x: "https://x.com/metesem"
+      facebook: "https://facebook.com/mestek",
+      linkedin: "https://linkedin.com/company/mestek",
+      instagram: "https://instagram.com/mestek",
+      x: "https://x.com/mestek"
     }
   }
 };
@@ -109,7 +109,7 @@ export const katilimPayi = {
     banka: "Vakıfbank / Ankara Şubesi",
     iban: "TR98 0001 5001 5800 7302 xxxxxx",
     swift: "VAKFTR2AXXX",
-    aciklamaSablon: "METE-SEM 2026 - Katılımcı Adı Soyadı - Bildiri ID"
+    aciklamaSablon: "MESTEK 2026 - Katılımcı Adı Soyadı - Bildiri ID"
   },
   ucretler: [
     { category: "Akademisyen / Araştırmacı (Yüz Yüze)", fee: "1.500 TL", details: "Katılım belgesi, bildiri kitabı yayını, ikramlar ve çanta içeriği dahildir." },
