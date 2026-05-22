@@ -1,0 +1,331 @@
+---
+import { navItems } from '../data/navigation';
+import { siteConfig } from '../data/siteData';
+import Icon from '../components/Icon.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = siteConfig.title, 
+  description = `${siteConfig.fullName} - ${siteConfig.slogan}` 
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="tr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | {siteConfig.title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-900 selection:text-white">
+    
+    <!-- Üst İnce Bilgi Çubuğu (Accessibility & Quick Info) -->
+    <div class="bg-[#0B2545] text-slate-200 text-xs py-2 px-4 border-b border-[#134074] hidden md:block">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-6">
+          <span class="flex items-center gap-1">
+            <Icon name="calendar" class="w-3.5 h-3.5 text-blue-300" />
+            <span>5-6 Kasım 2026</span>
+          </span>
+          <span class="flex items-center gap-1">
+            <Icon name="map-pin" class="w-3.5 h-3.5 text-blue-300" />
+            <span>Gazi Üniversitesi, Ankara</span>
+          </span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="/iletisim" class="hover:text-white transition-colors duration-150">İletişim</a>
+          <span class="text-slate-500">|</span>
+          <a href="#main-content" class="hover:text-white transition-colors duration-150 focus:ring-2 focus:ring-blue-400 focus:outline-none">İçeriğe Atla</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 shadow-sm transition-all duration-200" id="main-header">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo & Brand -->
+          <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:ring-offset-2 rounded-lg p-1">
+            <div class="bg-[#0B2545] text-white p-2.5 rounded-lg flex items-center justify-center shadow-md group-hover:bg-[#134074] transition-colors duration-200">
+              <Icon name="award" class="w-7 h-7" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl font-extrabold tracking-tight text-[#0B2545] leading-tight">METE-SEM'26</span>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-[#134074] hidden sm:inline-block">Mesleki ve Teknik Eğitim Sempozyumu</span>
+            </div>
+          </a>
+
+          <!-- Desktop Menu -->
+          <nav class="hidden lg:flex items-center gap-1.5" aria-label="Ana Menü">
+            {navItems.map((item) => {
+              if (item.children) {
+                // Dropdown menu
+                const isAnyChildActive = item.children.some(child => currentPath === child.href);
+                return (
+                  <div class="relative group py-2">
+                    <button
+                      type="button"
+                      class={`inline-flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 focus:outline-none ${
+                        isAnyChildActive
+                          ? 'bg-[#0B2545]/5 text-[#0B2545]'
+                          : 'text-slate-600 hover:text-[#0B2545] hover:bg-slate-50'
+                      }`}
+                      aria-haspopup="true"
+                    >
+                      <span>{item.name}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400 group-hover:text-[#0B2545] group-hover:rotate-180 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    
+                    <!-- Dropdown Panel (Premium Hover Animation) -->
+                    <div class="absolute left-0 mt-2 w-56 rounded-xl bg-white border border-slate-100 shadow-xl py-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                      {item.children.map((subItem) => {
+                        const isSubActive = currentPath === subItem.href;
+                        return (
+                          <a
+                            href={subItem.href}
+                            class={`block px-4 py-2.5 text-sm font-semibold transition-colors duration-150 ${
+                              isSubActive
+                                ? 'bg-slate-50 text-[#0B2545] font-bold border-l-4 border-[#0B2545]'
+                                : 'text-slate-600 hover:text-[#0B2545] hover:bg-slate-50 border-l-4 border-transparent'
+                            }`}
+                          >
+                            {subItem.name}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              }
+
+              const isActive = item.href && (currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)));
+              return (
+                <a
+                  href={item.href}
+                  class={`px-4 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 ${
+                    isActive 
+                      ? 'bg-[#0B2545] text-white shadow-sm' 
+                      : 'text-slate-600 hover:text-[#0B2545] hover:bg-slate-50'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.name}
+                </a>
+              );
+            })}
+          </nav>
+
+          <!-- Mobile Menu Toggler -->
+          <div class="flex items-center lg:hidden">
+            <button
+              id="mobile-menu-btn"
+              type="button"
+              class="inline-flex items-center justify-center p-2 rounded-lg text-slate-500 hover:text-[#0B2545] hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+              aria-label="Menüyü Aç/Kapat"
+            >
+              <Icon name="menu" class="w-6 h-6 block" id="menu-icon" />
+              <Icon name="x" class="w-6 h-6 hidden" id="x-icon" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div class="lg:hidden hidden" id="mobile-menu" aria-label="Mobil Menü">
+        <div class="px-2 pt-2 pb-4 space-y-1 bg-white border-t border-slate-100 shadow-lg">
+          {navItems.map((item) => {
+            if (item.children) {
+              return (
+                <div class="space-y-1 py-1">
+                  <div class="px-4 py-1 text-xs font-bold uppercase tracking-wider text-slate-400">
+                    {item.name}
+                  </div>
+                  {item.children.map((subItem) => {
+                    const isSubActive = currentPath === subItem.href;
+                    return (
+                      <a
+                        href={subItem.href}
+                        class={`block px-6 py-2.5 rounded-lg text-base font-semibold ${
+                          isSubActive 
+                            ? 'bg-[#0B2545]/10 text-[#0B2545]' 
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-[#0B2545]'
+                        }`}
+                      >
+                        {subItem.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              );
+            }
+
+            const isActive = item.href && (currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)));
+            return (
+              <a
+                href={item.href}
+                class={`block px-4 py-3 rounded-lg text-base font-semibold ${
+                  isActive 
+                    ? 'bg-[#0B2545] text-white shadow-sm' 
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-[#0B2545]'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.name}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main id="main-content" class="flex-grow focus:outline-none" tabindex="-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0B2545] text-slate-300 border-t border-[#134074] pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          
+          <!-- Column 1: Info and Slogan -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="bg-white text-[#0B2545] p-2 rounded-lg flex items-center justify-center">
+                <Icon name="award" class="w-6 h-6" />
+              </div>
+              <span class="text-xl font-bold tracking-tight text-white">METE-SEM'26</span>
+            </div>
+            <p class="text-sm text-slate-300 font-medium">
+              "{siteConfig.slogan}"
+            </p>
+            <p class="text-xs text-slate-400">
+              Gazi Üniversitesi ve Teknik Eğitim Vakfı (TEKEV) iş birliğiyle düzenlenen çok disiplinli akademik bilimsel etkinlik.
+            </p>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Hızlı Erişim</h3>
+            <ul class="space-y-2.5 text-sm">
+              {navItems.flatMap((item) => item.children ? item.children : [item]).map((item) => (
+                <li>
+                  <a href={item.href} class="hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                    <Icon name="chevron-right" class="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 transition-transform" />
+                    <span>{item.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Column 3: Contact Info -->
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">İletişim Bilgileri</h3>
+            <ul class="space-y-3.5 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <Icon name="map-pin" class="w-5 h-5 text-blue-300 shrink-0 mt-0.5" />
+                <span class="text-xs leading-relaxed">{siteConfig.contact.address}</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <Icon name="phone" class="w-5 h-5 text-blue-300 shrink-0" />
+                <span class="text-xs">{siteConfig.contact.phone}</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <Icon name="mail" class="w-5 h-5 text-blue-300 shrink-0" />
+                <a href={`mailto:${siteConfig.contact.email}`} class="text-xs hover:text-white transition-colors">{siteConfig.contact.email}</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Socials & Organizers -->
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Sosyal Medya</h3>
+              <div class="flex items-center gap-3">
+                <a href={siteConfig.contact.socials.facebook} target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-[#134074] hover:bg-blue-600 text-white transition-all duration-200" aria-label="Facebook Sayfası">
+                  <Icon name="facebook" class="w-5 h-5" />
+                </a>
+                <a href={siteConfig.contact.socials.linkedin} target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-[#134074] hover:bg-blue-700 text-white transition-all duration-200" aria-label="LinkedIn Sayfası">
+                  <Icon name="linkedin" class="w-5 h-5" />
+                </a>
+                <a href={siteConfig.contact.socials.instagram} target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-[#134074] hover:bg-pink-600 text-white transition-all duration-200" aria-label="Instagram Hesabı">
+                  <Icon name="instagram" class="w-5 h-5" />
+                </a>
+                <a href={siteConfig.contact.socials.x} target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-[#134074] hover:bg-slate-700 text-white transition-all duration-200" aria-label="X (Twitter) Hesabı">
+                  <Icon name="twitter" class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            
+            <div class="pt-2 border-t border-[#134074]/50">
+              <span class="text-xs text-slate-400 block mb-2">Sempozyum Paydaşları:</span>
+              <div class="flex items-center gap-4 text-xs font-semibold text-slate-300">
+                <span>Gazi Üniversitesi</span>
+                <span class="text-slate-600">|</span>
+                <span>TEKEV</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="border-t border-[#134074]/50 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+          <p>© 2026 METE-SEM. Tüm hakları saklıdır.</p>
+          <div class="flex items-center gap-6">
+            <span>Eğitimden Endüstriye Bilginin Yolculuğu</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+      // Mobile Menu Toggle Logic
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const xIcon = document.getElementById('x-icon');
+
+      btn?.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu?.classList.toggle('hidden');
+        menuIcon?.classList.toggle('hidden');
+        xIcon?.classList.toggle('hidden');
+      });
+
+      // Simple header opacity shift on scroll
+      const header = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+          header?.classList.add('shadow-md');
+          header?.classList.remove('shadow-sm');
+        } else {
+          header?.classList.add('shadow-sm');
+          header?.classList.remove('shadow-md');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { yazimKurallari } from '../data/siteData';
+---
+
+<Layout title="Yazım Kuralları">
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <nav class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3" aria-label="Ekmek Kırıntısı">
+            <a href="/" class="hover:text-white transition-colors">Ana Sayfa</a>
+            <Icon name="chevron-right" class="w-3.5 h-3.5" />
+            <span class="text-white">Yazım Kuralları</span>
+          </nav>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Yazım Kuralları</h1>
+          <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
+            Sempozyuma sunulacak bildirilerin hazırlanması gereken biçimsel kurallar ve şablon dosyaları.
+          </p>
+        </div>
+        <div class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block">
+          <Icon name="document" class="w-10 h-10 text-blue-200" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formatting Rules & Templates -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Content List -->
+        <div class="lg:col-span-8 space-y-8">
+          
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-[#0B2545]">Bildiri Yazım Şartları</h2>
+            <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+              Sempozyumda sunulmak üzere gönderilen tüm tam metinlerin, çift kör hakem değerlendirme sürecine alınabilmesi ve kongre kitabına dahil edilebilmesi için aşağıdaki biçimsel kriterlere kesinlikle uyması gerekmektedir.
+            </p>
+          </div>
+
+          <!-- Rules List -->
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 sm:p-8 space-y-4">
+            <h3 class="font-bold text-[#0B2545] border-b border-slate-200/60 pb-3 flex items-center gap-2">
+              <Icon name="info" class="w-5 h-5 text-blue-600" />
+              <span>Biçim ve Sayfa Yapısı</span>
+            </h3>
+            
+            <ul class="space-y-4 text-xs sm:text-sm text-slate-700">
+              {yazimKurallari.formatKurallari.map((kural, index) => (
+                <li class="flex items-start gap-3">
+                  <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">
+                    {index + 1}
+                  </span>
+                  <span class="leading-relaxed">{kural}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Plagiarism Info -->
+          <div class="border-l-4 border-amber-500 bg-amber-50 rounded-r-xl p-5 space-y-2">
+            <h4 class="font-bold text-amber-900 text-sm flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span>Benzerlik Oranı ve Etik Kurallar</span>
+            </h4>
+            <p class="text-xs text-amber-800 leading-relaxed">
+              Sempozyuma gönderilecek olan bildirilerin daha önce başka bir yerde yayınlanmamış ve sunulmamış olması gerekir. Benzerlik analizi (intihal taraması) sonucu, kaynakça hariç en fazla %20 olmalıdır. Bilimsel etik dışı durumlarda bildiri hakem sürecine sokulmaksızın doğrudan elenir.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Sidebar - Download Templates -->
+        <div class="lg:col-span-4 space-y-6">
+          
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm space-y-5">
+            <h3 class="font-bold text-[#0B2545]">Bildiri Şablonları</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Biçimlendirme ile zaman kaybetmemek için sempozyum kurulumuz tarafından hazırlanmış olan hazır şablonu kullanabilirsiniz.
+            </p>
+
+            <div class="space-y-3">
+              {yazimKurallari.sablonlar.map((sablon) => (
+                <div class="flex items-center justify-between p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-300 hover:shadow-sm transition-all group">
+                  <div class="space-y-1">
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-[#0B2545] transition-colors">{sablon.title}</p>
+                    <p class="text-[10px] text-slate-400">Dosya boyutu: {sablon.size}</p>
+                  </div>
+                  <a
+                    href={sablon.link}
+                    class="p-2 rounded-lg bg-[#0B2545]/5 text-[#0B2545] hover:bg-[#0B2545] hover:text-white transition-colors duration-200 focus:outline-none"
+                    aria-label={`${sablon.title} Şablonunu İndir`}
+                  >
+                    <Icon name="download" class="w-4 h-4" />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <div class="pt-2">
+              <p class="text-[11px] text-slate-400 leading-relaxed italic">
+                * Şablon dosyaları içinde örnek bildiri başlıkları, özet yapıları ve atıf gösterimleri yer almaktadır.
+              </p>
+            </div>
+          </div>
+
+          <!-- Secondary CTA -->
+          <div class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white rounded-2xl p-6 shadow-md space-y-4">
+            <h3 class="font-bold">Bildiri Hazır mı?</h3>
+            <p class="text-xs text-slate-200 leading-relaxed">
+              Yazım kurallarına uygun olarak hazırladığınız tam metni, bildiri gönderim sayfasındaki kılavuza uygun olarak iletebilirsiniz.
+            </p>
+            <a href="/tam-metin-gonderimi" class="block text-center bg-white text-[#0B2545] text-xs font-bold py-2.5 rounded-lg hover:bg-slate-100 transition-colors">
+              Tam Metin Gönderimi
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { bilimKurulu } from '../data/siteData';
+
+// Sort alphabetically by last name (or simply by name for Turkish support)
+const sortedBilimKurulu = [...bilimKurulu].sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+---
+
+<Layout title="Bilim & Danışma Kurulu">
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <nav class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3" aria-label="Ekmek Kırıntısı">
+            <a href="/" class="hover:text-white transition-colors">Ana Sayfa</a>
+            <Icon name="chevron-right" class="w-3.5 h-3.5" />
+            <span class="text-white">Bilim & Danışma Kurulu</span>
+          </nav>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Bilim ve Danışma Kurulu</h1>
+          <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
+            Bildirilerin çift kör hakemlik süreçlerini yürüten ve bilimsel programın niteliğini denetleyen seçkin akademisyenler.
+          </p>
+        </div>
+        <div class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block">
+          <Icon name="award" class="w-10 h-10 text-blue-200" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committee List -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Search Input (Interactive Accessibility Helper) -->
+      <div class="mb-8 max-w-md">
+        <label for="search-input" class="sr-only">Kurul Üyelerinde Ara</label>
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="İsim veya üniversite ara..."
+            class="block w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
+          />
+        </div>
+      </div>
+
+      <!-- Members Grid -->
+      <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse" id="members-table">
+            <thead>
+              <tr class="bg-[#0B2545] text-white text-xs sm:text-sm font-bold uppercase tracking-wider">
+                <th class="py-4 px-6">Üye Adı Soyadı</th>
+                <th class="py-4 px-6">Kurumu / Üniversitesi</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200/60 bg-white">
+              {sortedBilimKurulu.map((member) => (
+                <tr class="hover:bg-slate-50 transition-colors duration-150 member-row">
+                  <td class="py-4 px-6 text-sm font-bold text-slate-900 member-name">{member.name}</td>
+                  <td class="py-4 px-6 text-sm text-slate-600 member-aff">{member.affiliation}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Empty State -->
+        <div id="no-results" class="hidden py-12 text-center text-slate-500 text-sm">
+          Aramanızla eşleşen kurul üyesi bulunamadı.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Search Script -->
+  <script>
+    const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+    const rows = document.querySelectorAll('.member-row');
+    const noResults = document.getElementById('no-results');
+
+    searchInput?.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      const query = target.value.toLocaleLowerCase('tr').trim();
+      let matchCount = 0;
+
+      rows.forEach((row) => {
+        const name = row.querySelector('.member-name')?.textContent?.toLocaleLowerCase('tr') || '';
+        const aff = row.querySelector('.member-aff')?.textContent?.toLocaleLowerCase('tr') || '';
+        
+        if (name.includes(query) || aff.includes(query)) {
+          row.classList.remove('hidden');
+          matchCount++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+
+      if (matchCount === 0) {
+        noResults?.classList.remove('hidden');
+      } else {
+        noResults?.classList.add('hidden');
+      }
+    });
+  </script>
+</Layout>

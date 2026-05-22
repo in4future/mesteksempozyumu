@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { siteConfig } from '../data/siteData';
+---
+
+<Layout title="İletişim">
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <nav class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3" aria-label="Ekmek Kırıntısı">
+            <a href="/" class="hover:text-white transition-colors">Ana Sayfa</a>
+            <Icon name="chevron-right" class="w-3.5 h-3.5" />
+            <span class="text-white">İletişim</span>
+          </nav>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">İletişim</h1>
+          <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
+            METE-SEM'26 Sempozyum Sekreterliği ile iletişime geçin. Görüş, öneri ve bildiri sorularınızı bekliyoruz.
+          </p>
+        </div>
+        <div class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block">
+          <Icon name="mail" class="w-10 h-10 text-blue-200" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Body -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Contact Information Details -->
+        <div class="lg:col-span-5 space-y-8">
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-[#0B2545]">Sekreterlik İletişim Bilgileri</h2>
+            <p class="text-slate-600 leading-relaxed text-sm">
+              Sempozyum ile ilgili her türlü idari, bilimsel veya teknik sorunuz için aşağıdaki kanallardan bize ulaşabilirsiniz. E-postalarınız en geç 24 saat içinde yanıtlanacaktır.
+            </p>
+          </div>
+
+          <!-- Info Cards -->
+          <div class="space-y-4">
+            
+            <div class="flex items-start gap-4 p-5 bg-slate-50 border border-slate-100 rounded-2xl">
+              <div class="p-3 bg-[#0B2545]/5 text-[#0B2545] rounded-xl shrink-0 mt-0.5">
+                <Icon name="map-pin" class="w-6 h-6" />
+              </div>
+              <div class="space-y-1">
+                <h3 class="font-bold text-sm text-[#0B2545]">Yazışma Adresi</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{siteConfig.contact.address}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-5 bg-slate-50 border border-slate-100 rounded-2xl">
+              <div class="p-3 bg-[#0B2545]/5 text-[#0B2545] rounded-xl shrink-0 mt-0.5">
+                <Icon name="phone" class="w-6 h-6" />
+              </div>
+              <div class="space-y-1">
+                <h3 class="font-bold text-sm text-[#0B2545]">Telefon ve Faks</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{siteConfig.contact.phone}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-5 bg-slate-50 border border-slate-100 rounded-2xl">
+              <div class="p-3 bg-[#0B2545]/5 text-[#0B2545] rounded-xl shrink-0 mt-0.5">
+                <Icon name="mail" class="w-6 h-6" />
+              </div>
+              <div class="space-y-1">
+                <h3 class="font-bold text-sm text-[#0B2545]">E-Posta</h3>
+                <a href={`mailto:${siteConfig.contact.email}`} class="text-xs sm:text-sm text-slate-600 hover:text-[#0B2545] hover:underline break-all">
+                  {siteConfig.contact.email}
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-5 bg-slate-50 border border-slate-100 rounded-2xl">
+              <div class="p-3 bg-[#0B2545]/5 text-[#0B2545] rounded-xl shrink-0 mt-0.5">
+                <Icon name="globe" class="w-6 h-6" />
+              </div>
+              <div class="space-y-1">
+                <h3 class="font-bold text-sm text-[#0B2545]">Resmi Web Sitesi</h3>
+                <a href={siteConfig.contact.web} target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm text-slate-600 hover:text-[#0B2545] hover:underline">
+                  {siteConfig.contact.web}
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Socials Links -->
+          <div class="space-y-4 pt-4 border-t border-slate-100">
+            <h3 class="font-bold text-sm text-[#0B2545] uppercase tracking-wider">Sosyal Ağlarımız</h3>
+            <div class="flex items-center gap-3">
+              <a href={siteConfig.contact.socials.facebook} target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:text-blue-600 text-slate-600 transition-all" aria-label="Facebook Sayfası">
+                <Icon name="facebook" class="w-5 h-5" />
+              </a>
+              <a href={siteConfig.contact.socials.linkedin} target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-700 hover:text-blue-700 text-slate-600 transition-all" aria-label="LinkedIn Sayfası">
+                <Icon name="linkedin" class="w-5 h-5" />
+              </a>
+              <a href={siteConfig.contact.socials.instagram} target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-pink-600 hover:text-pink-600 text-slate-600 transition-all" aria-label="Instagram Hesabı">
+                <Icon name="instagram" class="w-5 h-5" />
+              </a>
+              <a href={siteConfig.contact.socials.x} target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-slate-900 hover:text-slate-900 text-slate-600 transition-all" aria-label="X (Twitter) Hesabı">
+                <Icon name="twitter" class="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Styled Contact Form -->
+        <div class="lg:col-span-7 bg-slate-50 border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <div class="space-y-4 mb-6">
+            <h2 class="text-xl font-bold text-[#0B2545]">Bize Mesaj Gönderin</h2>
+            <p class="text-xs sm:text-sm text-slate-500">
+              Formu doldurarak soru, şikayet ve dileklerinizi doğrudan sistemimize aktarabilirsiniz.
+            </p>
+          </div>
+
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label for="name" class="text-xs font-bold text-slate-700">Adınız Soyadınız *</label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="Ahmet Yılmaz"
+                  class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
+                />
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="email" class="text-xs font-bold text-slate-700">E-Posta Adresiniz *</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="ahmet@example.com"
+                  class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="subject" class="text-xs font-bold text-slate-700">Konu *</label>
+              <input
+                type="text"
+                id="subject"
+                required
+                placeholder="Örnek: Bildiri Değerlendirme Süreci Hk."
+                class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
+              />
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="message" class="text-xs font-bold text-slate-700">Mesajınız *</label>
+              <textarea
+                id="message"
+                required
+                rows="6"
+                placeholder="Sorunuzu veya mesajınızı buraya yazınız..."
+                class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
+              ></textarea>
+            </div>
+
+            <div class="pt-2">
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full inline-flex items-center justify-center gap-2 bg-[#0B2545] hover:bg-[#134074] active:bg-[#071930] text-white text-sm font-bold py-3.5 px-6 rounded-xl shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
+              >
+                <Icon name="send" class="w-4 h-4 text-white" />
+                <span>Gönder</span>
+              </button>
+            </div>
+            
+            <!-- Success/Error Message placeholder -->
+            <div id="form-feedback" class="hidden p-4 rounded-xl text-xs font-bold text-center"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Interactive script -->
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const feedback = document.getElementById('form-feedback');
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      if (!submitBtn) return;
+      
+      // Visual feedback loading state
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Gönderiliyor...</span>';
+      
+      // Simulate success since it's static
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        
+        if (feedback) {
+          feedback.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-emerald-100', 'text-emerald-800');
+          feedback.classList.add('bg-emerald-100', 'text-emerald-800');
+          feedback.textContent = 'Mesajınız başarıyla iletildi! En kısa sürede geri dönüş yapacağız.';
+        }
+        
+        form.reset();
+      }, 1000);
+    });
+  </script>
+</Layout>
