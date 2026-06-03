@@ -79,25 +79,6 @@ export const duzenlemeKurulu = {
   ]
 };
 
-export const bilimKurulu = [
-  { name: "Prof. Dr. Abdülkadir GÜLLÜ", affiliation: "Gazi Üniversitesi" },
-  { name: "Prof. Dr. Adem ÇİÇEK", affiliation: "Yıldırım Beyazıt Üniversitesi" },
-  { name: "Prof. Dr. Ali ERYILMAZ", affiliation: "Orta Doğu Teknik Üniversitesi" },
-  { name: "Prof. Dr. Behçet GÜVENÇ", affiliation: "Kocaeli Üniversitesi" },
-  { name: "Prof. Dr. Durmuş KAYA", affiliation: "Muğla Sıtkı Koçman Üniversitesi" },
-  { name: "Prof. Dr. Erdal IRMAK", affiliation: "Gazi Üniversitesi" },
-  { name: "Prof. Dr. H. Rıza GÜVEN", affiliation: "Sakarya Üniversitesi" },
-  { name: "Prof. Dr. Hüseyin ÜNAL", affiliation: "Marmara Üniversitesi" },
-  { name: "Prof. Dr. İbrahim UZLAN", affiliation: "Gazi Üniversitesi" },
-  { name: "Prof. Dr. Mustafa KURT", affiliation: "Marmara Üniversitesi" },
-  { name: "Prof. Dr. Necip CAMUŞCU", affiliation: "Ankara Sosyal Bilimler Üniversitesi" },
-  { name: "Prof. Dr. Ramazan KÖSE", affiliation: "Kütahya Dumlupınar Üniversitesi" },
-  { name: "Prof. Dr. Seyhan FIRAT", affiliation: "Gazi Üniversitesi" },
-  { name: "Prof. Dr. Şeref SAĞIROĞLU", affiliation: "Gazi Üniversitesi" },
-  { name: "Prof. Dr. Yakup KARA", affiliation: "Selçuk Üniversitesi" },
-  { name: "Doç. Dr. Fatma SÖNMEZ", affiliation: "Hacettepe Üniversitesi" },
-  { name: "Doç. Dr. Serkan AYDIN", affiliation: "Atatürk Üniversitesi" }
-];
 
 export const danismaKurulu = [
   { name: "Dr. Öğr. Üyesi Ali Buğra KÜÇÜK", affiliation: "Kırıkkale Üniversitesi", email: "alibugrakucuk@kku.edu.tr" },
@@ -140,17 +121,13 @@ export const katilimPayi = {
 
 export const yazimKurallari = {
   formatKurallari: [
-    "Bildiriler Türkçe veya İngilizce dillerinde hazırlanmalıdır.",
-    "Bildiri metni A4 boyutunda, her kenardan 2.5 cm boşluk bırakılarak hazırlanmalıdır.",
-    "Yazı tipi 'Times New Roman' olmalı, ana metin 11 punto ve 1.15 satır aralığı ile yazılmalıdır.",
-    "Başlık kalın (bold), 14 punto ve ortalanmış olmalıdır.",
-    "Yazar isimleri başlığın altında ortalanmış, kurum bilgileri ve e-posta adresleri dipnot olarak belirtilmelidir.",
-    "Özet kısmı 150-250 kelime arasında olmalı ve 3-5 adet anahtar kelime içermelidir.",
-    "Bildiriler en az 4, en fazla 10 sayfa uzunluğunda olmalıdır (kaynakça dahil).",
-    "Kaynakça APA 7 formatına uygun olarak düzenlenmelidir."
-  ],
-  sablonlar: [
-    { title: "Word Bildiri Şablonu (.docx)", size: "45 KB", link: "#" },
-    { title: "PDF Yazım Kılavuzu (.pdf)", size: "120 KB", link: "#" }
+    "Times New Roman, 12 punto ile yazınız.",
+    "Makale başlığı, yazar isimleri, kurumları, mail adresleri, ORCID NO, Özet ve anahtar kelimelerin tamamı 12 punto olmalı.",
+    "Grafik, tablo gibi kısımlar için punto büyüklüğü yazar tarafından en uygun biçimde belirlenebilir.",
+    "Satır aralığı 1,5 olmalı ve paragraf başlarında soldan girinti yapılmamalıdır.",
+    "ANA başlıklar BÜYÜK harfle ve bold (kalın) yazılmalıdır.",
+    "Atıf ve Kaynakça APA stilinde düzenlenmelidir.",
+    "Tam metinlerinizin en az 5 sayfa olması gerekmektedir.",
+    "Tam metinlerinizde ÖZET, GİRİŞ, ARAŞTIRMA VE BULGULAR, SONUÇ ve KAYNAKÇA bölümlerinin ayrı başlıklar altında gösterilmesi gerekmektedir."
   ]
 };

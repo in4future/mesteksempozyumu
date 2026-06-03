@@ -78,37 +78,6 @@ import { yazimKurallari } from '../data/siteData';
         <!-- Sidebar - Download Templates -->
         <div class="lg:col-span-4 space-y-6">
           
-          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm space-y-5">
-            <h3 class="font-bold text-[#0B2545]">Bildiri Şablonları</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Biçimlendirme ile zaman kaybetmemek için sempozyum kurulumuz tarafından hazırlanmış olan hazır şablonu kullanabilirsiniz.
-            </p>
-
-            <div class="space-y-3">
-              {yazimKurallari.sablonlar.map((sablon) => (
-                <div class="flex items-center justify-between p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-300 hover:shadow-sm transition-all group">
-                  <div class="space-y-1">
-                    <p class="text-xs font-bold text-slate-900 group-hover:text-[#0B2545] transition-colors">{sablon.title}</p>
-                    <p class="text-[10px] text-slate-400">Dosya boyutu: {sablon.size}</p>
-                  </div>
-                  <a
-                    href={sablon.link}
-                    class="p-2 rounded-lg bg-[#0B2545]/5 text-[#0B2545] hover:bg-[#0B2545] hover:text-white transition-colors duration-200 focus:outline-none"
-                    aria-label={`${sablon.title} Şablonunu İndir`}
-                  >
-                    <Icon name="download" class="w-4 h-4" />
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            <div class="pt-2">
-              <p class="text-[11px] text-slate-400 leading-relaxed italic">
-                * Şablon dosyaları içinde örnek bildiri başlıkları, özet yapıları ve atıf gösterimleri yer almaktadır.
-              </p>
-            </div>
-          </div>
-
           <!-- Secondary CTA -->
           <div class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white rounded-2xl p-6 shadow-md space-y-4">
             <h3 class="font-bold">Bildiri Hazır mı?</h3>
