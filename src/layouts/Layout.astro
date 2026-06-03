@@ -3,6 +3,8 @@ import { navItems } from '../data/navigation';
 import { siteConfig } from '../data/siteData';
 import Icon from '../components/Icon.astro';
 import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.png';
 
 interface Props {
   title?: string;
@@ -22,7 +24,7 @@ const currentPath = Astro.url.pathname;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | {siteConfig.title}</title>
     <meta name="description" content={description} />
@@ -61,8 +63,8 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center justify-between h-20">
           <!-- Logo & Brand -->
           <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:ring-offset-2 rounded-lg p-1">
-            <div class="bg-[#0B2545] text-white p-2.5 rounded-lg flex items-center justify-center shadow-md group-hover:bg-[#134074] transition-colors duration-200">
-              <Icon name="award" class="w-7 h-7" />
+            <div class="bg-[#0B2545] p-2 rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-200 border border-[#134074]/30">
+              <Image src={logoImg} alt="MESTEK'26 Logo" class="w-10 h-10 object-contain rounded-lg mix-blend-screen" />
             </div>
             <div class="flex flex-col">
               <span class="text-2xl font-extrabold tracking-tight text-[#0B2545] leading-tight">MESTEK'26</span>
@@ -210,8 +212,8 @@ const currentPath = Astro.url.pathname;
           <!-- Column 1: Info and Slogan -->
           <div class="space-y-4">
             <div class="flex items-center gap-3">
-              <div class="bg-white text-[#0B2545] p-2 rounded-lg flex items-center justify-center">
-                <Icon name="award" class="w-6 h-6" />
+              <div class="bg-white p-1 rounded-xl flex items-center justify-center shadow-sm w-11 h-11">
+                <Image src={logoImg} alt="MESTEK'26 Logo" class="w-9 h-9 object-contain invert" />
               </div>
               <span class="text-xl font-bold tracking-tight text-white">MESTEK'26</span>
             </div>
@@ -293,7 +295,7 @@ const currentPath = Astro.url.pathname;
         <div class="border-t border-[#134074]/50 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
           <p>© 2026 MESTEK. Tüm hakları saklıdır.</p>
           <div class="flex items-center gap-6">
-            <span>Eğitimden Endüstriye Bilginin Yolculuğu</span>
+            <span><a href="https://in4future.com">Web Tasarım</a> in4future</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
-import { siteConfig } from '../data/siteData';
 ---
 
 <Layout title="Tam Metin Gönderimi">
@@ -17,7 +16,7 @@ import { siteConfig } from '../data/siteData';
           </nav>
           <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Tam Metin Gönderimi</h1>
           <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
-            MESTEK'26 sempozyum bildirilerinizi göndermek için gereken tüm süreçler ve bildiri sistemi yönergeleri.
+            Sempozyum bildirilerinizi göndermek için gereken tüm süreçler, yazım kuralları ve şablonlar.
           </p>
         </div>
         <div class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block">
@@ -27,81 +26,107 @@ import { siteConfig } from '../data/siteData';
     </div>
   </section>
 
-  <!-- Main Info -->
+  <!-- Main Content -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <!-- Guidelines & Process -->
+        
+        <!-- Left Side - Submission details and guidelines -->
         <div class="lg:col-span-8 space-y-8">
           
+          <!-- General Submission Info -->
           <div class="space-y-4">
-            <h2 class="text-2xl font-bold text-[#0B2545]">Bildiri Değerlendirme ve Gönderim Süreci</h2>
-            <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
-              Sempozyumumuza gönderilen tüm bildiriler, alanında uzman en az iki hakem tarafından <strong>çift kör hakemlik (double-blind peer review)</strong> sürecine tabi tutulacaktır. Hakem değerlendirmelerinin ardından kabul edilen bildiriler, sunumun gerçekleştirilmesi şartıyla ISBN'li bildiri e-kitabında yer alacaktır.
+            <h2 class="text-2xl font-bold text-[#0B2545] flex items-center gap-2">
+              <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
+              <span>Başvuru ve Değerlendirme Süreci</span>
+            </h2>
+            <div class="text-slate-600 leading-relaxed text-sm sm:text-base space-y-4">
+              <p>
+                Kongremize tam metin göndererek başvurmanız gerekmektedir. Tam metin değerlendirme süreci <strong>en çok 10 gün</strong> sürmektedir. Değerlendirme sonucu gecikmeksizin yazara bilgi verilmektedir.
+              </p>
+              <p class="bg-blue-50 text-blue-900 border border-blue-100 rounded-xl p-4 font-medium text-xs sm:text-sm flex items-start gap-2.5">
+                <Icon name="info" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                <span>Lütfen kongremize yüz yüze katılım ya da online katılım taleplerinizi tam metin başvurunuzla birlikte e-postanızda belirtiniz.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- YÖK ORCID Requirement -->
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 space-y-3.5">
+            <h3 class="font-bold text-amber-950 flex items-center gap-2 text-sm sm:text-base">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5.5 h-5.5 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span>YÖK ORCID Numarası Zorunluluğu</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-amber-900 leading-relaxed">
+              YÖK Yürütme Kurulu, 13.05.2020 tarih ve 30 numaralı toplantısında; lisansüstü tezler ile makale, kongre ve sempozyum bildirileri, kitap ve her türlü bilimsel yayınların takibinde öğretim elemanları ile tezli lisansüstü öğretim programlarına kayıtlı öğrencilerin <strong>Open Researcher and Contributor ID (ORCID)</strong> numarası kullanmalarının zorunlu tutulmasını kararlaştırmıştır.
+            </p>
+            <p class="text-xs sm:text-sm text-amber-950 font-bold border-t border-amber-200/60 pt-3">
+              ⚠️ Özet ve Tam metinlerinizi gönderirken ORCID NO yazılması zorunludur.
             </p>
           </div>
 
-          <!-- Process Steps -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="p-5 bg-slate-50 border border-slate-100 rounded-xl relative group">
-              <span class="absolute top-4 right-4 text-xs font-bold text-blue-400">Adım 01</span>
-              <div class="p-2 w-fit rounded bg-[#0B2545]/5 text-[#0B2545] mb-4">
-                <Icon name="document" class="w-5 h-5" />
-              </div>
-              <h3 class="font-bold text-sm text-[#0B2545] mb-1">Şablona Göre Hazırlık</h3>
-              <p class="text-xs text-slate-500 leading-relaxed">Bildirinizi Yazım Kuralları sayfamızda bulunan şablona tam uyumlu olarak hazırlayınız.</p>
-            </div>
-
-            <div class="p-5 bg-slate-50 border border-slate-100 rounded-xl relative group">
-              <span class="absolute top-4 right-4 text-xs font-bold text-blue-400">Adım 02</span>
-              <div class="p-2 w-fit rounded bg-[#0B2545]/5 text-[#0B2545] mb-4">
-                <Icon name="send" class="w-5 h-5" />
-              </div>
-              <h3 class="font-bold text-sm text-[#0B2545] mb-1">Sisteme Yükleme / İletim</h3>
-              <p class="text-xs text-slate-500 leading-relaxed">Çalışmanızı online bildiri sistemi veya e-posta yoluyla son teslim tarihinden önce gönderiniz.</p>
-            </div>
-
-            <div class="p-5 bg-slate-50 border border-slate-100 rounded-xl relative group">
-              <span class="absolute top-4 right-4 text-xs font-bold text-blue-400">Adım 03</span>
-              <div class="p-2 w-fit rounded bg-[#0B2545]/5 text-[#0B2545] mb-4">
-                <Icon name="award" class="w-5 h-5" />
-              </div>
-              <h3 class="font-bold text-sm text-[#0B2545] mb-1">Kabul ve İlan</h3>
-              <p class="text-xs text-slate-500 leading-relaxed">Hakem değerlendirmesi tamamlandıktan sonra kabul/red durumu e-posta ile tarafınıza iletilecektir.</p>
-            </div>
-          </div>
-
-          <!-- Important Rules Accordion/Note -->
-          <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6 space-y-4">
-            <h3 class="font-bold text-[#0B2545] flex items-center gap-2">
-              <Icon name="info" class="w-5 h-5 text-blue-600" />
-              <span>Bildiri Gönderiminde Dikkat Edilmesi Gereken Hususlar</span>
+          <!-- Yazım Kuralları -->
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 sm:p-8 space-y-6">
+            <h3 class="text-lg sm:text-xl font-bold text-[#0B2545] border-b border-slate-200/60 pb-3 flex items-center gap-2">
+              <Icon name="document" class="w-5.5 h-5.5 text-blue-600" />
+              <span>Yazım Kuralları</span>
             </h3>
             
-            <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700 list-disc list-inside leading-relaxed pl-1">
-              <li>Değerlendirme sürecinin sağlıklı yürütülmesi için ilk gönderimde yazar isimleri, kurumları veya yazar kimliğini açığa çıkaracak bilgiler <strong>bildiri dosyasından tamamen çıkarılmalıdır</strong>.</li>
-              <li>Benzerlik oranı (intihal raporu) kaynakça hariç <strong>%20'yi aşmamalıdır</strong>. Gönderilen tüm bildiriler iThenticate/Turnitin yazılımları ile taranacaktır.</li>
-              <li>Bir yazar, en fazla iki farklı bildiri sunumu yapabilir. Sunumu yapılacak her bildiri için en az bir yazarın katılım kaydının yapılmış olması zorunludur.</li>
-              <li>Akademik yükselme ve doçentlik kriterleri doğrultusunda, kabul edilen tüm bildiriler ISBN'li sempozyum e-kitabında yer alacaktır.</li>
+            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-none pl-0">
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">1</span>
+                <span class="leading-relaxed">Times New Roman, <strong>12 punto</strong> ile yazınız.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">2</span>
+                <span class="leading-relaxed">Makale başlığı, yazar isimleri, kurumları, mail adresleri, ORCID NO, Özet ve anahtar kelimelerin tamamı <strong>12 punto</strong> olmalı.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">3</span>
+                <span class="leading-relaxed">Grafik, tablo gibi kısımlar için punto büyüklüğü yazar tarafından en uygun biçimde belirlenebilir.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">4</span>
+                <span class="leading-relaxed">Satır aralığı <strong>1,5</strong> olmalı ve paragraf başlarında soldan girinti yapılmamalıdır.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">5</span>
+                <span class="leading-relaxed">ANA başlıklar <strong>BÜYÜK harfle ve bold (kalın)</strong> yazılmalıdır.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">6</span>
+                <span class="leading-relaxed">Atıf ve Kaynakça <strong>APA stilinde</strong> düzenlenmelidir.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">7</span>
+                <span class="leading-relaxed">Tam metinlerinizin <strong>en az 5 sayfa</strong> olması gerekmektedir.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold shrink-0 mt-0.5">8</span>
+                <span class="leading-relaxed">Tam metinlerinizde <strong>ÖZET, GİRİŞ, ARAŞTIRMA VE BULGULAR, SONUÇ ve KAYNAKÇA</strong> bölümlerinin ayrı başlıklar altında gösterilmesi gerekmektedir.</span>
+              </li>
             </ul>
           </div>
 
         </div>
 
-        <!-- Sidebar - Submission Portal Cards -->
+        <!-- Right Side - Submission and template actions -->
         <div class="lg:col-span-4 space-y-6">
+          
           <!-- Submission Action Card -->
           <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm space-y-4">
             <h3 class="font-bold text-[#0B2545]">Bildiri Gönderimi</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
-              Tam metinlerinizi göndermek için aşağıdaki e-posta adresine ".docx" (Word) formatında dosyanızı ve varsa intihal raporunuzu iletiniz.
+              Tam metinlerinizi Word/Doc formatında son teslim tarihine kadar aşağıdaki mail adresine gönderiniz.
             </p>
             
             <div class="bg-white border border-slate-200 rounded-xl p-4 space-y-2.5">
               <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Gönderim E-Posta Adresi:</span>
-              <a href={`mailto:${siteConfig.contact.email}`} class="text-sm font-bold text-[#0B2545] hover:underline flex items-center gap-1.5 break-all">
+              <a href="mailto:mesteksempozyumu@gmail.com" class="text-sm font-bold text-[#0B2545] hover:underline flex items-center gap-1.5 break-all">
                 <Icon name="mail" class="w-4 h-4 text-blue-500 shrink-0" />
-                <span>{siteConfig.contact.email}</span>
+                <span>mesteksempozyumu@gmail.com</span>
               </a>
             </div>
 
@@ -112,27 +137,39 @@ import { siteConfig } from '../data/siteData';
               </p>
               <p class="flex items-center gap-1.5">
                 <Icon name="document" class="w-3.5 h-3.5 text-slate-400" />
-                <span>Format: <strong>Microsoft Word (.docx)</strong></span>
+                <span>Format: <strong>Word / Doc</strong></span>
               </p>
             </div>
 
-            <a href={`mailto:${siteConfig.contact.email}?subject=MESTEK26 Bildiri Başvurusu`} class="block w-full text-center bg-[#0B2545] hover:bg-[#134074] text-white text-xs font-bold py-3.5 rounded-xl shadow-md transition-all">
+            <a href="mailto:mesteksempozyumu@gmail.com?subject=MESTEK'26 Tam Metin Bildiri Başvurusu" class="block w-full text-center bg-[#0B2545] hover:bg-[#134074] text-white text-xs font-bold py-3.5 rounded-xl shadow-md transition-all">
               Başvuru E-Postası Gönder
             </a>
           </div>
 
-          <!-- Writer Guidelines Card link -->
-          <div class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white rounded-2xl p-6 shadow-md space-y-3">
-            <h3 class="font-bold">Yazım Şablonunu İndirin</h3>
+          <!-- Download Templates Card -->
+          <div class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white rounded-2xl p-6 shadow-md space-y-4">
+            <h3 class="font-bold flex items-center gap-2">
+              <Icon name="document" class="w-5 h-5 text-blue-200" />
+              <span>Tam Metin Şablonu</span>
+            </h3>
             <p class="text-xs text-slate-200 leading-relaxed">
-              Bildirinizi şablona göre biçimlendirerek yazım kurallarına uygun hale getirmelisiniz. Yazım kuralları ve şablon indirme linkleri için tıklayınız.
+              Biçimlendirme ile zaman kaybetmemek için sempozyum kurulumuz tarafından hazırlanmış olan tam metin Word şablonunu indirin.
             </p>
-            <a href="/yazim-kurallari" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 hover:text-white transition-colors pt-1">
-              <span>Yazım Kuralları ve Şablonlar</span>
-              <Icon name="chevron-right" class="w-4 h-4" />
+            
+            <a
+              href="#"
+              class="flex items-center justify-between p-3.5 bg-white/10 border border-white/20 rounded-xl hover:bg-white hover:text-[#0B2545] transition-all group"
+            >
+              <div class="text-left">
+                <span class="text-xs font-bold block">Word Bildiri Şablonu</span>
+                <span class="text-[10px] opacity-75">Tıklayıp indirin (.docx)</span>
+              </div>
+              <Icon name="download" class="w-5 h-5 text-blue-300 group-hover:text-[#0B2545]" />
             </a>
           </div>
+
         </div>
+
       </div>
     </div>
   </section>

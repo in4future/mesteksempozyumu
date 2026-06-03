@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import { siteConfig, importantDates } from '../data/siteData';
+import { Image } from 'astro:assets';
+import gaziLogo from '../assets/gazi_logo.png';
+import tekevLogo from '../assets/tekev_logo.png';
 ---
 
 <Layout title="Ana Sayfa">
@@ -144,7 +147,7 @@ import { siteConfig, importantDates } from '../data/siteData';
             </div>
             <div>
               <h2 class="text-2xl font-bold text-[#0B2545]">KONGREYE ÇAĞRI</h2>
-              <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">1. Mesleki ve Teknik Eğitim Sempozyumu (MESTEK'26)</p>
+              <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">1. Mesleki ve Teknik Eğitim Sempozyumu – MESTEK’26</p>
             </div>
           </div>
 
@@ -154,7 +157,7 @@ import { siteConfig, importantDates } from '../data/siteData';
             <p class="font-semibold text-slate-800">Değerli Bilim İnsanları, Araştırmacılar ve Eğitimciler,</p>
             
             <p>
-              Gazi Üniversitesi ve Teknik Eğitim Vakfı iş birliğiyle; mesleki ve teknik eğitimin gelişimine katkı sağlamak, eğitim ile endüstri arasındaki iş birliğini güçlendirmek ve bilimsel bilgi paylaşımını artırmak amacıyla düzenlenen çok disiplinli <strong>1. Mesleki ve Teknik Eğitim Sempozyumu’na (MESTEK’26)</strong> sizleri davet etmekten büyük mutluluk duymaktayız.
+              Gazi Üniversitesi ve Teknik Eğitim Vakfı iş birliğiyle; mesleki ve teknik eğitimin gelişimine katkı sağlamak, eğitim ile endüstri arasındaki iş birliğini güçlendirmek ve bilimsel bilgi paylaşımını artırmak amacıyla düzenlenen çok disiplinli 1. Mesleki ve Teknik Eğitim Sempozyumu’na (MESTEK’26) sizleri davet etmekten büyük mutluluk duymaktayız.
             </p>
             
             <p>
@@ -162,7 +165,7 @@ import { siteConfig, importantDates } from '../data/siteData';
             </p>
             
             <p>
-              Sempozyumumuz <strong>5-6 Kasım 2026</strong> tarihlerinde Gazi Üniversitesi Ankara/TÜRKİYE’de yüz yüze ve çevrimiçi (online) katılım imkânı ile gerçekleştirilecektir.
+              Sempozyumumuz 5-6 Kasım 2026 tarihlerinde Gazi Üniversitesi Ankara/TÜRKİYE’de yüz yüze ve çevrimiçi (online) katılım imkânı ile gerçekleştirilecektir.
             </p>
             
             <p>
@@ -354,15 +357,21 @@ import { siteConfig, importantDates } from '../data/siteData';
   <section class="py-12 bg-slate-50 border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">İş Birliği Yapan Kurumlar</p>
-      <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
-        <div class="flex flex-col items-center">
-          <span class="text-xl font-black text-[#0B2545]">GAZİ ÜNİVERSİTESİ</span>
-          <span class="text-[9px] font-bold tracking-widest text-[#134074]">TEKNOLOJİ FAKÜLTESİ</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <span class="text-xl font-black text-[#0B2545]">TEKEV</span>
-          <span class="text-[9px] font-bold tracking-widest text-[#134074]">TEKNİK EĞİTİM VAKFI</span>
-        </div>
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+        <a href="https://gazi.edu.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white py-3 px-5 rounded-2xl border border-slate-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
+          <Image src={gaziLogo} alt="Gazi Üniversitesi Logo" class="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300" />
+          <div class="flex flex-col text-left">
+            <span class="text-sm sm:text-base font-bold text-[#0B2545] tracking-tight group-hover:text-blue-900 transition-colors">GAZİ ÜNİVERSİTESİ</span>
+            <span class="text-[9px] sm:text-[10px] font-semibold text-[#134074]/80 tracking-wider">TEKNOLOJİ FAKÜLTESİ</span>
+          </div>
+        </a>
+        <a href="https://tekev.org.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white py-3 px-5 rounded-2xl border border-slate-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
+          <Image src={tekevLogo} alt="TEKEV Logo" class="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300" />
+          <div class="flex flex-col text-left">
+            <span class="text-sm sm:text-base font-bold text-[#0B2545] tracking-tight group-hover:text-blue-900 transition-colors">TEKEV</span>
+            <span class="text-[9px] sm:text-[10px] font-semibold text-[#134074]/80 tracking-wider">TEKNİK EĞİTİM VAKFI</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>

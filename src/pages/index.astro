@@ -1,7 +1,11 @@
 ---
-import Icon from '../components/Icon.astro';
-import { siteConfig } from '../data/siteData';
-import '../styles/global.css';
+import Icon from "../components/Icon.astro";
+import { siteConfig } from "../data/siteData";
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import gaziLogo from "../assets/gazi_logo.png";
+import tekevLogo from "../assets/tekev_logo.png";
+import logoImg from "../assets/logo.png";
 ---
 
 <!doctype html>
@@ -9,108 +13,201 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>MESTEK'26 | Yakında Hizmetinizde</title>
-    <meta name="description" content="MESTEK'26 - 1. Mesleki ve Teknik Eğitim Sempozyumu. Çok yakında hizmetinizde." />
-    
+    <meta
+      name="description"
+      content="MESTEK'26 - 1. Mesleki ve Teknik Eğitim Sempozyumu. Çok yakında hizmetinizde."
+    />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-gradient-to-br from-[#0B2545] via-[#0f2c52] to-[#1b3d6b] text-white font-sans antialiased min-h-screen lg:h-screen lg:overflow-hidden flex flex-col justify-between selection:bg-blue-900 selection:text-white relative">
-    
+  <body
+    class="bg-gradient-to-br from-[#0B2545] via-[#0f2c52] to-[#1b3d6b] text-white font-sans antialiased min-h-screen lg:h-screen lg:overflow-hidden flex flex-col justify-between selection:bg-blue-900 selection:text-white relative"
+  >
     <!-- Premium background glowing shapes -->
-    <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
-    <div class="absolute -left-40 top-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/20 blur-3xl pointer-events-none"></div>
-    <div class="absolute -right-40 bottom-1/4 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-3xl pointer-events-none"></div>
+    <div
+      class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"
+    >
+    </div>
+    <div
+      class="absolute -left-40 top-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/20 blur-3xl pointer-events-none"
+    >
+    </div>
+    <div
+      class="absolute -right-40 bottom-1/4 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-3xl pointer-events-none"
+    >
+    </div>
 
     <!-- Header (Simple & Premium) -->
-    <header class="relative z-10 px-6 py-6 sm:px-8 flex justify-center lg:justify-start">
+    <header
+      class="relative z-10 px-6 py-6 sm:px-8 flex justify-center lg:justify-start"
+    >
       <div class="flex items-center gap-3">
-        <div class="bg-white text-[#0B2545] p-2.5 rounded-xl flex items-center justify-center shadow-md">
-          <Icon name="award" class="w-6 h-6" />
+        <div class="bg-[#0B2545] p-2 rounded-xl flex items-center justify-center shadow-md border border-white/10">
+          <Image src={logoImg} alt="MESTEK'26 Logo" class="w-10 h-10 object-contain rounded-lg mix-blend-screen" />
         </div>
-        <span class="text-xl font-bold tracking-tight text-white">MESTEK'26</span>
+        <span class="text-xl font-bold tracking-tight text-white"
+          >MESTEK'26</span
+        >
       </div>
     </header>
 
     <!-- Main Coming Soon Section -->
-    <main class="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-0">
+    <main
+      class="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-0"
+    >
       <div class="max-w-2xl w-full text-center space-y-8">
-        
         <!-- Brand Badge -->
-        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-xs sm:text-sm font-semibold tracking-wider text-blue-200 shadow-inner animate-pulse">
+        <div
+          class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-xs sm:text-sm font-semibold tracking-wider text-blue-200 shadow-inner animate-pulse"
+        >
           <Icon name="award" class="w-4 h-4 text-blue-300" />
           <span>1. MESLEKİ VE TEKNİK EĞİTİM SEMPOZYUMU</span>
         </div>
 
         <!-- Main Header -->
         <div class="space-y-3">
-          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-none">
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-blue-200">
+          <h1
+            class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-none"
+          >
+            <span
+              class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-blue-200"
+            >
               Yakında Hizmetinizdeyiz
             </span>
           </h1>
-          <p class="text-base sm:text-lg font-medium text-blue-100 italic tracking-wide max-w-xl mx-auto">
+          <p
+            class="text-base sm:text-lg font-medium text-blue-100 italic tracking-wide max-w-xl mx-auto"
+          >
             "{siteConfig.slogan}"
           </p>
         </div>
 
         <!-- Glassmorphic Info Card -->
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 max-w-xl mx-auto">
+        <div
+          class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 max-w-xl mx-auto"
+        >
           <div class="space-y-2">
-            <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-              Sempozyum web sitemiz çok yakında tüm detaylarıyla yayına alınacaktır. Bildiri gönderimleri, program akışı ve tüm güncellemeler için takipte kalın.
+            <p
+              class="text-slate-200 text-sm sm:text-base leading-relaxed font-medium"
+            >
+              Sempozyum web sitemiz çok yakında tüm detaylarıyla yayına
+              alınacaktır. Bildiri gönderimleri, program akışı ve tüm
+              güncellemeler için takipte kalın.
             </p>
           </div>
 
           <!-- Event highlights -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div class="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-left">
+            <div
+              class="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-left"
+            >
               <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-300">
                 <Icon name="calendar" class="w-6 h-6 shrink-0" />
               </div>
               <div>
-                <p class="text-xs text-slate-300 font-bold uppercase tracking-wider">Etkinlik Tarihi</p>
-                <p class="text-sm sm:text-base font-extrabold text-white mt-0.5">5-6 Kasım 2026</p>
+                <p
+                  class="text-xs text-slate-300 font-bold uppercase tracking-wider"
+                >
+                  Etkinlik Tarihi
+                </p>
+                <p
+                  class="text-sm sm:text-base font-extrabold text-white mt-0.5"
+                >
+                  5-6 Kasım 2026
+                </p>
               </div>
             </div>
 
-            <div class="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-left">
+            <div
+              class="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-left"
+            >
               <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-300">
                 <Icon name="map-pin" class="w-6 h-6 shrink-0" />
               </div>
               <div>
-                <p class="text-xs text-slate-300 font-bold uppercase tracking-wider">Konum / Yer</p>
-                <p class="text-sm sm:text-base font-extrabold text-white mt-0.5">Gazi Üniversitesi, Ankara</p>
+                <p
+                  class="text-xs text-slate-300 font-bold uppercase tracking-wider"
+                >
+                  Konum / Yer
+                </p>
+                <p
+                  class="text-sm sm:text-base font-extrabold text-white mt-0.5"
+                >
+                  Gazi Üniversitesi, Ankara
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Stakeholders / Collaboration -->
-        <div class="space-y-2.5">
-          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">İş Birliği Yapan Kurumlar</p>
-          <div class="flex flex-wrap justify-center items-center gap-6 opacity-75">
-            <div class="flex flex-col items-center">
-              <span class="text-xs font-bold tracking-tight text-white">GAZİ ÜNİVERSİTESİ</span>
-              <span class="text-[7px] font-bold tracking-widest text-slate-400">TEKNOLOJİ FAKÜLTESİ</span>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="text-xs font-bold tracking-tight text-white">TEKEV</span>
-              <span class="text-[7px] font-bold tracking-widest text-slate-400">TEKNİK EĞİTİM VAKFI</span>
-            </div>
+        <div class="space-y-4">
+          <p
+            class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+          >
+            İş Birliği Yapan Kurumlar
+          </p>
+          <div class="flex flex-wrap justify-center items-center gap-6">
+            <a
+              href="https://gazi.edu.tr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 bg-white/5 border border-white/10 hover:border-white/35 hover:bg-white/10 py-2 px-4 rounded-xl backdrop-blur-sm transition-all duration-300 group"
+            >
+              <Image
+                src={gaziLogo}
+                alt="Gazi Üniversitesi Logo"
+                class="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="flex flex-col text-left">
+                <span class="text-xs font-bold text-white tracking-tight"
+                  >GAZİ ÜNİVERSİTESİ</span
+                >
+                <span
+                  class="text-[8px] font-semibold text-blue-200 tracking-wider"
+                  >TEKNOLOJİ FAKÜLTESİ</span
+                >
+              </div>
+            </a>
+            <a
+              href="https://tekev.org.tr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 bg-white/5 border border-white/10 hover:border-white/35 hover:bg-white/10 py-2 px-4 rounded-xl backdrop-blur-sm transition-all duration-300 group"
+            >
+              <Image
+                src={tekevLogo}
+                alt="TEKEV Logo"
+                class="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="flex flex-col text-left">
+                <span class="text-xs font-bold text-white tracking-tight"
+                  >TEKEV</span
+                >
+                <span
+                  class="text-[8px] font-semibold text-blue-200 tracking-wider"
+                  >TEKNİK EĞİTİM VAKFI</span
+                >
+              </div>
+            </a>
           </div>
         </div>
-
       </div>
     </main>
 
     <!-- Footer (Centered & Minimal) -->
-    <footer class="relative z-10 px-6 py-6 text-center text-[10px] text-slate-400 border-t border-white/5">
+    <footer
+      class="relative z-10 px-6 py-6 text-center text-[10px] text-slate-400 border-t border-white/5"
+    >
       <p>© 2026 MESTEK. Tüm hakları saklıdır.</p>
     </footer>
-
   </body>
 </html>

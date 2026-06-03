@@ -14,8 +14,8 @@ export const siteConfig = {
     secretary: "Sempozyum Sekreterliği",
     address: "Gazi Üniversitesi Teknoloji Fakültesi İmalat Mühendisliği Bölümü, Teknikokullar, Ankara / Türkiye",
     phone: "0-312-202-xxxx",
-    email: "info@mestek.org",
-    web: "https://www.mestek.org",
+    email: "mesteksempozyumu@gmail.com",
+    web: "https://mesteksempozyumu.org/",
     socials: {
       facebook: "https://facebook.com/mestek",
       linkedin: "https://linkedin.com/company/mestek",
@@ -59,26 +59,23 @@ export const importantDates = [
 ];
 
 export const duzenlemeKurulu = {
-  onurKurulu: [
-    { name: "Prof. Dr. Musa YILDIZ", title: "Gazi Üniversitesi Rektörü (Onursal Başkan)" },
-    { name: "Erdoğan ÖZEN", title: "Teknik Eğitim Vakfı (TEKEV) Genel Başkanı" }
-  ],
-  baskanlar: [
-    { name: "Prof. Dr. Süleyman TEKELİ", title: "Sempozyum Başkanı, Gazi Üniversitesi Teknoloji Fakültesi Dekanı" }
-  ],
   sekreterler: [
-    { name: "Arş. Gör. Dr. Sempozyum Sekreteri", title: "Gazi Üniversitesi Teknoloji Fakültesi İmalat Mühendisliği Bölümü" }
+    { name: "Arş. Gör. Büşra ÇALIK", title: "Gazi Üniversitesi" },
+    { name: "Arş. Gör. Erdem GÜNEY", title: "Sinop Üniversitesi" }
   ],
   uyeler: [
-    { name: "Prof. Dr. İhsan KORKUT", title: "Gazi Üniversitesi" },
-    { name: "Prof. Dr. Can ÇOĞUN", title: "Gazi Üniversitesi" },
-    { name: "Prof. Dr. Mustafa İLBAŞ", title: "Gazi Üniversitesi" },
-    { name: "Doç. Dr. H. Gökhan GÜLER", title: "Gazi Üniversitesi" },
-    { name: "Doç. Dr. Yusuf USTA", title: "Gazi Üniversitesi" },
-    { name: "Dr. Öğr. Üyesi Ahmet KAYA", title: "Gazi Üniversitesi" },
-    { name: "Dr. Öğr. Üyesi Mehmet OKUR", title: "Gazi Üniversitesi" },
-    { name: "Yusuf KILIÇ", title: "TEKEV Yönetim Kurulu Üyesi" },
-    { name: "Şerafettin CİHAN", title: "TEKEV Genel Sekreteri" }
+    { name: "Mustafa AYDIN", title: "TEKEV Yönetim Kurulu Başkan Yardımcısı" },
+    { name: "Nursel K. YILMAZ", title: "TEKEV Yönetim Kurulu Üyesi" },
+    { name: "Sedat ARSLAN", title: "TEKEV Yönetim Kurulu Üyesi" },
+    { name: "Ayhan GÜZEL", title: "TEKEV Yönetim Kurulu Üyesi" },
+    { name: "Raşit HİÇYILMAZ", title: "TEKEV Yönetim Kurulu Üyesi" },
+    { name: "Soner YILGÖR", title: "TEKEV Üyesi" },
+    { name: "Prof. Dr. Mehmet Taşpınar", title: "Gazi Üniversitesi" },
+    { name: "Prof. Dr. Yakup TURGUT", title: "Gazi Üniversitesi" },
+    { name: "Doç. Dr. Selçuk YAĞMUR", title: "Gazi Üniversitesi" },
+    { name: "Doç. Dr. Tayfun FINDIK", title: "Gazi Üniversitesi" },
+    { name: "Dr. Öğr. Üyesi Güven MERAL", title: "Ankara Yıldırım Beyazıt Üniversitesi" },
+    { name: "Öğr. Gör. Mehmet Erol ÇALMAZ", title: "Hitit Üniversitesi" }
   ]
 };
 
@@ -102,6 +99,28 @@ export const bilimKurulu = [
   { name: "Doç. Dr. Serkan AYDIN", affiliation: "Atatürk Üniversitesi" }
 ];
 
+export const danismaKurulu = [
+  { name: "Dr. Öğr. Üyesi Ali Buğra KÜÇÜK", affiliation: "Kırıkkale Üniversitesi", email: "alibugrakucuk@kku.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Ali İhsan BENZER", affiliation: "Mustafa Kemal Üniversitesi", email: "alibenzer@mku.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Ali KABAKULAK", affiliation: "Afyon Kocatepe Üniversitesi", email: "alikabakulak@aku.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Bahar Doğramacı Yalçın", affiliation: "Kırklareli Üniversitesi", email: "bahardogramaciyalcin@klu.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Burcu TÜRKMEN", affiliation: "Ankara Yıldırım Beyazıt Üniversitesi", email: "burcuturkmen@aybu.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Cengiz ELDEM", affiliation: "Gazi Üniversitesi", email: "celdem@gazi.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Ceren BAŞTEMUR KAYA", affiliation: "Nevşehir Hacı Bektaş Veli Üniversitesi", email: "ceren@nevsehir.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Gökhan TUZCU", affiliation: "Pamukkale Üniversitesi", email: "gtuzcu@pau.edu.tr" },
+  { name: "Dr. Öğr. Üyesi İbrahim PAZARKAYA", affiliation: "Afyon Kocatepe Üniversitesi", email: "ipazarkaya@aku.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Kürşat YILDIZ", affiliation: "Gazi Üniversitesi", email: "kursaty@gazi.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Mehmet YAZAR", affiliation: "Çanakkale Onsekiz Mart Üniversitesi", email: "mehmetyazar@comu.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Meserret NALÇAKAN", affiliation: "Eskişehir Teknik Üniversitesi", email: "mnalcakan@eskisehir.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Mustafa DOĞAN", affiliation: "Kahramanmaraş İstiklal Üniversitesi", email: "mustafa.dogan@istiklal.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Mustafa OĞUZ", affiliation: "Balıkesir Üniversitesi", email: "mustafaoguz@balikesir.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Necati YALÇIN", affiliation: "Gazi Üniversitesi", email: "neyalcin@gazi.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Oğuz POYRAZOĞLU", affiliation: "Gazi Üniversitesi", email: "opoyrazoglu@gazi.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Yasemin AŞÇI", affiliation: "Zonguldak Bülent Ecevit Üniversitesi", email: "yasemin.aydemir@beun.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Yasemin ÖZEL", affiliation: "Kastamonu Üniversitesi", email: "ykeskin@kastamonu.edu.tr" },
+  { name: "Dr. Öğr. Üyesi Yusuf SİYAMBAŞ", affiliation: "Erzincan Binali Yıldırım Üniversitesi", email: "yusuf.siyambas@erzincan.edu.tr" }
+];
+
 export const katilimPayi = {
   aciklama: "Sempozyuma katılım ücretleri, bildiri sahiplerinin sunum yapabilmesi, organizasyon giderleri ve kongre kitabının basım/yayım süreçleri için kullanılmaktadır. Ücretler katılım türüne göre değişiklik göstermektedir.",
   bankaBilgileri: {
@@ -109,14 +128,13 @@ export const katilimPayi = {
     banka: "Vakıfbank / Ankara Şubesi",
     iban: "TR98 0001 5001 5800 7302 xxxxxx",
     swift: "VAKFTR2AXXX",
-    aciklamaSablon: "MESTEK 2026 - Katılımcı Adı Soyadı - Bildiri ID"
+    aciklamaSablon: "Yalnızca T.C. Kimlik Numaranızı yazınız"
   },
   ucretler: [
-    { category: "Akademisyen / Araştırmacı (Yüz Yüze)", fee: "1.500 TL", details: "Katılım belgesi, bildiri kitabı yayını, ikramlar ve çanta içeriği dahildir." },
-    { category: "Akademisyen / Araştırmacı (Çevrimiçi / Online)", fee: "1.000 TL", details: "E-katılım belgesi ve bildiri kitabı yayını dahildir." },
-    { category: "Öğretmen / Öğrenci (Yüz Yüze)", fee: "750 TL", details: "Öğrenci belgesi/Kurum kimliği ibraz edilmelidir. Katılım materyalleri dahildir." },
-    { category: "Öğretmen / Öğrenci (Çevrimiçi / Online)", fee: "500 TL", details: "E-katılım belgesi dahildir." },
-    { category: "Dinleyici (Katılımsız / Sertifikasız)", fee: "Ücretsiz", details: "Oturumları izleyici olarak takip etmek isteyenler için kayıt gereklidir." }
+    { category: "Yüz Yüze Katılım Ücreti", fee: "2.500 TL", details: "Katılım belgesi, bildiri kitabı yayını, ikramlar ve çanta içeriği dahildir." },
+    { category: "Yüz Yüze Katılım İkinci Bildiri Ücreti", fee: "500 TL", details: "Yüz yüze katılım sağlayacak yazarların sunacağı ikinci bildiri için geçerli ek ücrettir." },
+    { category: "Online Sunum Katılım Ücreti", fee: "1.500 TL", details: "E-katılım belgesi ve bildiri kitabı yayını dahildir." },
+    { category: "Online İkinci Bildiri Ücreti", fee: "500 TL", details: "Online katılım sağlayacak yazarların sunacağı ikinci bildiri için geçerli ek ücrettir." }
   ]
 };
 

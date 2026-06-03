@@ -58,15 +58,55 @@ import { katilimPayi } from '../data/siteData';
             ))}
           </div>
 
-          <!-- Inclusions/Invoicing Box -->
+          <!-- Faturalandırma Info Box -->
           <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6 space-y-3">
             <h4 class="font-bold text-[#0B2545] text-sm flex items-center gap-2">
               <Icon name="info" class="w-5 h-5 text-blue-600" />
               <span>Faturalandırma ve Belgelendirme</span>
             </h4>
             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-              Ödemeleriniz karşılığında Teknik Eğitim Vakfı İktisadi İşletmesi tarafından fatura düzenlenecektir. Fatura talepleriniz için ödeme esnasında fatura detaylarını (Kurum Adı, Vergi Dairesi, Vergi No veya T.C. Kimlik No) açıklama alanına ekleyebilir ya da e-posta ile bildirebilirsiniz.
+              Ödemeleriniz karşılığında Teknik Eğitim Vakfı İktisadi İşletmesi tarafından fatura düzenlenecektir. Faturalandırma için T.C. Kimlik numaranız zorunludur.
             </p>
+          </div>
+
+          <!-- Katılım Payı Neleri Kapsar? -->
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 space-y-4">
+            <h3 class="text-lg font-bold text-[#0B2545] flex items-center gap-2">
+              <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
+              <span>Katılım Payı Neleri Kapsar?</span>
+            </h3>
+            <ul class="space-y-3 text-slate-700 text-sm">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Bildiri özet ve tam metinlerinin kongre kitabında yayınlanması</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Sunulan bildirilerin tüm yazarları için ayrı ayrı katılım belgesi</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ücret İade Prosedürü -->
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 space-y-4">
+            <h3 class="text-lg font-bold text-[#0B2545] flex items-center gap-2">
+              <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
+              <span>Ücret İade Prosedürü</span>
+            </h3>
+            <div class="space-y-3 text-slate-700 text-sm">
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#134074] mt-2 shrink-0"></div>
+                <p>Son tam metin gönderim tarihine kadar yapılan iptal taleplerinde ücretin yarısı iade edilir.</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#134074] mt-2 shrink-0"></div>
+                <p>Kongre programı yayınlandıktan sonra yapılacak iptal talepleri ya da herhangi bir sebeple kongreye katılmama durumunda iade yapılamamaktadır.</p>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -74,6 +114,24 @@ import { katilimPayi } from '../data/siteData';
         <!-- Sidebar - Bank Account & Deadlines -->
         <div class="lg:col-span-4 space-y-6">
           
+          <!-- Important Warning Note -->
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 space-y-4 shadow-sm">
+            <h3 class="font-bold text-amber-900 flex items-center gap-2 text-sm sm:text-base">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span>Önemli Ödeme Notu</span>
+            </h3>
+            <div class="text-xs sm:text-sm text-amber-800 space-y-2.5 leading-relaxed">
+              <p>
+                <strong>Ödeme yaparken açıklamalar kısmına yalnızca T.C. Kimlik numaranızı yazınız.</strong> Faturalandırma işlemleri için bu bilgi gereklidir.
+              </p>
+              <p class="font-semibold text-amber-950 border-t border-amber-200/60 pt-2.5">
+                ⚠️ Veri tabanımızda hata oluşmaması için açıklamalar kısmına "bildiri, sempozyum, kongre vs." gibi kelimeler kesinlikle yazmayınız.
+              </p>
+            </div>
+          </div>
+
           <!-- Important Deadlines -->
           <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm space-y-4">
             <h3 class="font-bold text-[#0B2545]">Ödeme Tarihi</h3>
@@ -95,7 +153,7 @@ import { katilimPayi } from '../data/siteData';
           <div class="bg-[#0B2545] text-white rounded-2xl p-6 shadow-md space-y-6">
             <div class="border-b border-white/10 pb-4">
               <h3 class="font-bold text-lg text-white">Banka Hesap Bilgileri</h3>
-              <p class="text-[11px] text-slate-300 mt-1">Lütfen EFT/Havale açıklamasına aşağıdaki şablonu yazınız.</p>
+              <p class="text-[11px] text-slate-300 mt-1">Lütfen EFT/Havale açıklamasını kurallara uygun giriniz.</p>
             </div>
 
             <div class="space-y-4 text-xs">
@@ -123,8 +181,8 @@ import { katilimPayi } from '../data/siteData';
 
               <div class="pt-3 border-t border-white/10">
                 <p class="text-[10px] text-blue-300 uppercase font-semibold">Transfer Açıklaması</p>
-                <div class="bg-white/10 border border-white/10 rounded-lg p-2.5 mt-1">
-                  <p class="font-bold text-xs italic text-blue-200 select-all">"{katilimPayi.bankaBilgileri.aciklamaSablon}"</p>
+                <div class="bg-amber-500/25 border border-amber-500/30 rounded-lg p-2.5 mt-1">
+                  <p class="font-bold text-xs text-amber-200 select-all">"{katilimPayi.bankaBilgileri.aciklamaSablon}"</p>
                 </div>
               </div>
             </div>

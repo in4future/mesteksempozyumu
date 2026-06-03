@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
-import { bilimKurulu } from '../data/siteData';
+import { bilimKurulu, danismaKurulu } from '../data/siteData';
 
-// Sort alphabetically by last name (or simply by name for Turkish support)
-const sortedBilimKurulu = [...bilimKurulu].sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+// Combine both lists and sort alphabetically by last name (or simply by name for Turkish support)
+const combinedKurul = [
+  ...bilimKurulu,
+  ...danismaKurulu
+];
+const sortedKurul = combinedKurul.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
 ---
 
 <Layout title="Bilim & Danışma Kurulu">
@@ -16,11 +20,11 @@ const sortedBilimKurulu = [...bilimKurulu].sort((a, b) => a.name.localeCompare(b
           <nav class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3" aria-label="Ekmek Kırıntısı">
             <a href="/" class="hover:text-white transition-colors">Ana Sayfa</a>
             <Icon name="chevron-right" class="w-3.5 h-3.5" />
-            <span class="text-white">Bilim & Danışma Kurulu</span>
+            <span class="text-white">Bilim ve Danışma Kurulu</span>
           </nav>
           <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Bilim ve Danışma Kurulu</h1>
           <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
-            Bildirilerin çift kör hakemlik süreçlerini yürüten ve bilimsel programın niteliğini denetleyen seçkin akademisyenler.
+            Bildirilerin çift kör hakemlik değerlendirme süreçlerini yürüten ve bilimsel programın niteliğini denetleyen seçkin akademisyenler.
           </p>
         </div>
         <div class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block">
@@ -34,39 +38,58 @@ const sortedBilimKurulu = [...bilimKurulu].sort((a, b) => a.name.localeCompare(b
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Search Input (Interactive Accessibility Helper) -->
-      <div class="mb-8 max-w-md">
-        <label for="search-input" class="sr-only">Kurul Üyelerinde Ara</label>
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </span>
-          <input
-            type="text"
-            id="search-input"
-            placeholder="İsim veya üniversite ara..."
-            class="block w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
-          />
+      <!-- Search Input Header -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+        <div>
+          <h2 class="text-xl font-bold text-[#0B2545]">Kurul Üyeleri Listesi</h2>
+          <p class="text-slate-500 text-xs mt-1">Toplam {sortedKurul.length} üye listelenmektedir.</p>
+        </div>
+
+        <!-- Search Input (Interactive Accessibility Helper) -->
+        <div class="w-full md:w-80">
+          <label for="search-input" class="sr-only">Kurul Üyelerinde Ara</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </span>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="İsim, üniversite veya e-posta ara..."
+              class="block w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
+            />
+          </div>
         </div>
       </div>
 
       <!-- Members Grid -->
-      <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
+      <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse" id="members-table">
             <thead>
               <tr class="bg-[#0B2545] text-white text-xs sm:text-sm font-bold uppercase tracking-wider">
                 <th class="py-4 px-6">Üye Adı Soyadı</th>
                 <th class="py-4 px-6">Kurumu / Üniversitesi</th>
+                <th class="py-4 px-6">Mail Adresi</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-200/60 bg-white">
-              {sortedBilimKurulu.map((member) => (
+              {sortedKurul.map((member) => (
                 <tr class="hover:bg-slate-50 transition-colors duration-150 member-row">
                   <td class="py-4 px-6 text-sm font-bold text-slate-900 member-name">{member.name}</td>
                   <td class="py-4 px-6 text-sm text-slate-600 member-aff">{member.affiliation}</td>
+                  <td class="py-4 px-6 text-sm member-email">
+                    {member.email ? (
+                      <a href={`mailto:${member.email}`} class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 hover:underline transition-colors font-medium">
+                        <Icon name="mail" class="w-4 h-4 text-blue-500 shrink-0" />
+                        <span>{member.email}</span>
+                      </a>
+                    ) : (
+                      <span class="text-slate-400 font-normal italic">Belirtilmedi</span>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -74,7 +97,7 @@ const sortedBilimKurulu = [...bilimKurulu].sort((a, b) => a.name.localeCompare(b
         </div>
         
         <!-- Empty State -->
-        <div id="no-results" class="hidden py-12 text-center text-slate-500 text-sm">
+        <div id="no-results" class="hidden py-12 text-center text-slate-500 text-sm bg-white">
           Aramanızla eşleşen kurul üyesi bulunamadı.
         </div>
       </div>
@@ -87,17 +110,18 @@ const sortedBilimKurulu = [...bilimKurulu].sort((a, b) => a.name.localeCompare(b
     const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
     const rows = document.querySelectorAll('.member-row');
     const noResults = document.getElementById('no-results');
+    const table = document.getElementById('members-table');
 
-    searchInput?.addEventListener('input', (e) => {
-      const target = e.target as HTMLInputElement;
-      const query = target.value.toLocaleLowerCase('tr').trim();
+    function filterRows() {
+      const query = searchInput?.value.toLocaleLowerCase('tr').trim() || '';
       let matchCount = 0;
 
       rows.forEach((row) => {
         const name = row.querySelector('.member-name')?.textContent?.toLocaleLowerCase('tr') || '';
         const aff = row.querySelector('.member-aff')?.textContent?.toLocaleLowerCase('tr') || '';
-        
-        if (name.includes(query) || aff.includes(query)) {
+        const email = row.querySelector('.member-email')?.textContent?.toLocaleLowerCase('tr') || '';
+
+        if (name.includes(query) || aff.includes(query) || email.includes(query)) {
           row.classList.remove('hidden');
           matchCount++;
         } else {
@@ -107,9 +131,13 @@ const sortedBilimKurulu = [...bilimKurulu].sort((a, b) => a.name.localeCompare(b
 
       if (matchCount === 0) {
         noResults?.classList.remove('hidden');
+        table?.classList.add('hidden');
       } else {
         noResults?.classList.add('hidden');
+        table?.classList.remove('hidden');
       }
-    });
+    }
+
+    searchInput?.addEventListener('input', filterRows);
   </script>
 </Layout>

@@ -1,26 +1,38 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.astro';
-import { duzenlemeKurulu } from '../data/siteData';
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import { duzenlemeKurulu } from "../data/siteData";
 ---
 
 <Layout title="Düzenleme Kurulu">
   <!-- Page Header -->
-  <section class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-16">
+  <section
+    class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-16"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+      >
         <div>
-          <nav class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3" aria-label="Ekmek Kırıntısı">
+          <nav
+            class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3"
+            aria-label="Ekmek Kırıntısı"
+          >
             <a href="/" class="hover:text-white transition-colors">Ana Sayfa</a>
             <Icon name="chevron-right" class="w-3.5 h-3.5" />
             <span class="text-white">Düzenleme Kurulu</span>
           </nav>
-          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Düzenleme Kurulu</h1>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Düzenleme Kurulu
+          </h1>
           <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
-            Sempozyumun organizasyon sürecini yöneten, Gazi Üniversitesi ve Teknik Eğitim Vakfı temsilcilerinden oluşan kurul.
+            Sempozyumun organizasyon sürecini yöneten, Gazi Üniversitesi ve
+            Teknik Eğitim Vakfı temsilcilerinden oluşan kurul.
           </p>
         </div>
-        <div class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block">
+        <div
+          class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block"
+        >
           <Icon name="users" class="w-10 h-10 text-blue-200" />
         </div>
       </div>
@@ -30,82 +42,59 @@ import { duzenlemeKurulu } from '../data/siteData';
   <!-- Committee List -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      
-      <!-- Onur Kurulu (Honorary Committee) -->
-      <div class="space-y-6">
-        <h2 class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center gap-2.5">
-          <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
-          <span>Onur Kurulu</span>
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {duzenlemeKurulu.onurKurulu.map((member) => (
-            <div class="bg-slate-50 border border-slate-100 rounded-xl p-5 hover:shadow-sm transition-all">
-              <p class="text-base font-bold text-slate-900">{member.name}</p>
-              <p class="text-xs text-[#134074] font-semibold mt-1">{member.title}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- Sempozyum Başkanları (Chairs) -->
-      <div class="space-y-6">
-        <h2 class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center gap-2.5">
-          <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
-          <span>Sempozyum Başkanı</span>
-        </h2>
-        <div class="grid grid-cols-1 gap-6">
-          {duzenlemeKurulu.baskanlar.map((member) => (
-            <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 hover:shadow-sm transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <div>
-                <p class="text-lg font-bold text-slate-900">{member.name}</p>
-                <p class="text-xs text-[#134074] font-semibold mt-1">{member.title}</p>
-              </div>
-              <span class="px-2.5 py-1 rounded bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold uppercase tracking-wider">Başkanlık</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- Sempozyum Sekreterliği (Secretariat) -->
-      <div class="space-y-6">
-        <h2 class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center gap-2.5">
-          <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
-          <span>Sempozyum Sekreterliği</span>
-        </h2>
-        <div class="grid grid-cols-1 gap-6">
-          {duzenlemeKurulu.sekreterler.map((member) => (
-            <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 hover:shadow-sm transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <div>
-                <p class="text-lg font-bold text-slate-900">{member.name}</p>
-                <p class="text-xs text-[#134074] font-semibold mt-1">{member.title}</p>
-              </div>
-              <span class="px-2.5 py-1 rounded bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold uppercase tracking-wider">Sekreterlik</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <!-- Kurul Üyeleri (Committee Members) -->
       <div class="space-y-6">
-        <h2 class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center gap-2.5">
+        <h2
+          class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center gap-2.5"
+        >
           <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
           <span>Düzenleme Kurulu Üyeleri</span>
         </h2>
         <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-            {duzenlemeKurulu.uyeler.map((member) => (
-              <div class="flex items-start gap-3 py-2 border-b border-slate-200/50 last:border-0">
-                <div class="w-2.5 h-2.5 rounded-full bg-[#134074] mt-2 shrink-0"></div>
-                <div>
-                  <p class="text-sm sm:text-base font-bold text-slate-900">{member.name}</p>
-                  <p class="text-xs text-slate-500">{member.title}</p>
+            {
+              duzenlemeKurulu.uyeler.map((member) => (
+                <div class="flex items-start gap-3 py-2 border-b border-slate-200/50 last:border-0">
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#134074] mt-2 shrink-0" />
+                  <div>
+                    <p class="text-sm sm:text-base font-bold text-slate-900">
+                      {member.name}
+                    </p>
+                    <p class="text-xs text-slate-500">{member.title}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
       </div>
 
+      <!-- Sempozyum Sekreterliği (Secretariat) -->
+      <div class="space-y-6">
+        <h2
+          class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center gap-2.5"
+        >
+          <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
+          <span>Sempozyum Sekreterliği</span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {
+            duzenlemeKurulu.sekreterler.map((member) => (
+              <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 hover:shadow-sm transition-all flex justify-between items-center gap-4">
+                <div>
+                  <p class="text-lg font-bold text-slate-900">{member.name}</p>
+                  <p class="text-xs text-[#134074] font-semibold mt-1">
+                    {member.title}
+                  </p>
+                </div>
+                <span class="px-2.5 py-1 rounded bg-[#0B2545]/10 text-[#0B2545] text-xs font-bold uppercase tracking-wider">
+                  Sekreterlik
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
