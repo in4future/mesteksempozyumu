@@ -5,15 +5,19 @@ import Icon from '../components/Icon.astro';
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import logoImg from '../assets/logo.png';
+import gaziLogo from '../assets/gazi_logo.png';
+import tekevLogo from '../assets/tekev_logo.png';
 
 interface Props {
   title?: string;
   description?: string;
+  showPopup?: boolean;
 }
 
 const { 
   title = siteConfig.title, 
-  description = `${siteConfig.fullName} - ${siteConfig.slogan}` 
+  description = `${siteConfig.fullName} - ${siteConfig.slogan}`,
+  showPopup = false
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -63,12 +67,12 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center justify-between h-20">
           <!-- Logo & Brand -->
           <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:ring-offset-2 rounded-lg p-1">
-            <div class="bg-[#0B2545] p-2 rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-200 border border-[#134074]/30">
-              <Image src={logoImg} alt="MESTEK'26 Logo" class="w-10 h-10 object-contain rounded-lg mix-blend-screen" />
+            <div class="flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+              <Image src={logoImg} alt="MESTEK'26 Logo" class="w-18 h-18 object-contain" />
             </div>
             <div class="flex flex-col">
               <span class="text-2xl font-extrabold tracking-tight text-[#0B2545] leading-tight">MESTEK'26</span>
-              <span class="text-[10px] uppercase font-bold tracking-widest text-[#134074] hidden sm:inline-block">Mesleki ve Teknik Eğitim Sempozyumu</span>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-[#134074] hidden sm:inline-block">1. Mesleki ve Teknik Eğitim Sempozyumu</span>
             </div>
           </a>
 
@@ -204,6 +208,29 @@ const currentPath = Astro.url.pathname;
       <slot />
     </main>
 
+    <!-- İş Birliği Yapan Kurumlar -->
+    <section class="py-12 bg-slate-50 border-t border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">İş Birliği Yapan Kurumlar</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+          <a href="https://gazi.edu.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white py-3 px-5 rounded-2xl border border-slate-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
+            <Image src={gaziLogo} alt="Gazi Üniversitesi Logo" class="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300" />
+            <div class="flex flex-col text-left">
+              <span class="text-sm sm:text-base font-bold text-[#0B2545] tracking-tight group-hover:text-blue-900 transition-colors">GAZİ ÜNİVERSİTESİ</span>
+              <span class="text-[9px] sm:text-[10px] font-semibold text-[#134074]/80 tracking-wider">TEKNOLOJİ FAKÜLTESİ</span>
+            </div>
+          </a>
+          <a href="https://tekev.org.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white py-3 px-5 rounded-2xl border border-slate-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
+            <Image src={tekevLogo} alt="TEKEV Logo" class="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300" />
+            <div class="flex flex-col text-left">
+              <span class="text-sm sm:text-base font-bold text-[#0B2545] tracking-tight group-hover:text-blue-900 transition-colors">TEKEV</span>
+              <span class="text-[9px] sm:text-[10px] font-semibold text-[#134074]/80 tracking-wider">TEKNİK EĞİTİM VAKFI</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-[#0B2545] text-slate-300 border-t border-[#134074] pt-16 pb-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -212,8 +239,8 @@ const currentPath = Astro.url.pathname;
           <!-- Column 1: Info and Slogan -->
           <div class="space-y-4">
             <div class="flex items-center gap-3">
-              <div class="bg-white p-1 rounded-xl flex items-center justify-center shadow-sm w-11 h-11">
-                <Image src={logoImg} alt="MESTEK'26 Logo" class="w-9 h-9 object-contain invert" />
+              <div class="bg-white p-1 rounded-xl flex items-center justify-center shadow-sm w-14 h-14">
+                <Image src={logoImg} alt="MESTEK'26 Logo" class="w-12 h-12 object-contain" />
               </div>
               <span class="text-xl font-bold tracking-tight text-white">MESTEK'26</span>
             </div>
@@ -301,6 +328,36 @@ const currentPath = Astro.url.pathname;
       </div>
     </footer>
 
+    {showPopup && (
+      <!-- Announcement Popup Modal -->
+      <div id="announcement-popup" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="relative bg-white rounded-2xl shadow-2xl max-w-[95vw] md:max-w-[960px] w-full mx-4 overflow-hidden transform scale-95 transition-all duration-300 flex flex-col max-h-[95vh]">
+          <!-- Close Button (Top-Right of Image) -->
+          <button id="close-popup-btn" class="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/45 hover:bg-black/65 text-white transition-colors duration-150 focus:outline-none shadow-md" aria-label="Kapat">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <!-- Poster Image Container -->
+          <div class="overflow-y-auto flex-grow p-2 bg-slate-100 flex flex-col items-center">
+            <img src="/afis.jpg" alt="MESTEK'26 Sempozyum Afişi" class="w-full h-auto object-contain rounded-lg shadow-sm" />
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="px-6 py-4 bg-white border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <label class="flex items-center gap-2.5 text-sm font-semibold text-slate-500 cursor-pointer select-none">
+              <input type="checkbox" id="dont-show-checkbox" class="w-4.5 h-4.5 text-[#0B2545] border-slate-350 rounded focus:ring-[#0B2545]" />
+              <span>Bir daha gösterme</span>
+            </label>
+            <button id="close-popup-bottom-btn" class="w-full sm:w-auto px-6 py-2.5 bg-[#0B2545] hover:bg-[#134074] active:bg-[#0B2545] text-white font-bold text-sm rounded-xl shadow-md transition-colors duration-150">
+              Kapat
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+
     <!-- Interactive Scripts -->
     <script>
       // Mobile Menu Toggle Logic
@@ -326,6 +383,43 @@ const currentPath = Astro.url.pathname;
         } else {
           header?.classList.add('shadow-sm');
           header?.classList.remove('shadow-md');
+        }
+      });
+
+      // Announcement Popup Logic
+      const popup = document.getElementById('announcement-popup');
+      const closeBtn = document.getElementById('close-popup-btn');
+      const closeBottomBtn = document.getElementById('close-popup-bottom-btn');
+      const checkbox = document.getElementById('dont-show-checkbox') as HTMLInputElement | null;
+
+      const isHidden = localStorage.getItem('metesem_hide_popup') === 'true';
+
+      if (!isHidden && popup) {
+        setTimeout(() => {
+          popup.classList.remove('opacity-0', 'pointer-events-none');
+          const modalBox = popup.querySelector('.transform');
+          modalBox?.classList.remove('scale-95');
+          modalBox?.classList.add('scale-100');
+        }, 400);
+      }
+
+      function closePopup() {
+        if (checkbox?.checked) {
+          localStorage.setItem('metesem_hide_popup', 'true');
+        }
+        if (popup) {
+          popup.classList.add('opacity-0', 'pointer-events-none');
+          const modalBox = popup.querySelector('.transform');
+          modalBox?.classList.remove('scale-100');
+          modalBox?.classList.add('scale-95');
+        }
+      }
+
+      closeBtn?.addEventListener('click', closePopup);
+      closeBottomBtn?.addEventListener('click', closePopup);
+      popup?.addEventListener('click', (e) => {
+        if (e.target === popup) {
+          closePopup();
         }
       });
     </script>

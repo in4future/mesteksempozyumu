@@ -13,7 +13,7 @@ export const siteConfig = {
   contact: {
     secretary: "Sempozyum Sekreterliği",
     address: "Gazi Üniversitesi Teknoloji Fakültesi İmalat Mühendisliği Bölümü, Teknikokullar, Ankara / Türkiye",
-    phone: "0-312-202-xxxx",
+    phone: " 0-312-2028602",
     email: "mesteksempozyumu@gmail.com",
     web: "https://mesteksempozyumu.org/",
     socials: {
@@ -59,6 +59,11 @@ export const importantDates = [
 ];
 
 export const duzenlemeKurulu = {
+  onursalBaskanlar: [
+    { name: "Bayram ARSLANOĞLU", institution: "TEKEV", title: "Yönetim Kurulu Başkanı" },
+    { name: "Prof. Dr. Serhat KARYEYEN", institution: "Gazi Üniversitesi", title: "Rektör Yardımcısı" }
+  ],
+  baskan: { name: "Prof. Dr. Gültekin UZUN", institution: "Gazi Üniversitesi", title: "Düzenleme Kurulu Başkanı" },
   sekreterler: [
     { name: "Arş. Gör. Büşra ÇALIK", title: "Gazi Üniversitesi" },
     { name: "Arş. Gör. Erdem GÜNEY", title: "Sinop Üniversitesi" }

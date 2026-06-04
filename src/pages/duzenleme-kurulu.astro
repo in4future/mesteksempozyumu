@@ -42,6 +42,64 @@ import { duzenlemeKurulu } from "../data/siteData";
   <!-- Committee List -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <!-- Onursal Başkanlar -->
+      <div class="space-y-6 flex flex-col items-center text-center">
+        <h2
+          class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center justify-center gap-2.5 w-full"
+        >
+          <span>Sempozyum Onursal Başkanları</span>
+        </h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl w-full justify-center"
+        >
+          {
+            duzenlemeKurulu.onursalBaskanlar.map((president) => (
+              <div class="bg-gradient-to-br from-slate-50 to-blue-50/20 border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between border-t-4 border-t-[#134074] text-center">
+                <div>
+                  <h3 class="text-lg font-bold text-[#0B2545]">
+                    {president.name}
+                  </h3>
+                  <p class="text-sm font-medium text-slate-600 mt-1">
+                    {president.institution}
+                  </p>
+                </div>
+                <p class="text-xs font-semibold text-[#134074] mt-4 pt-3 border-t border-slate-200/50 uppercase tracking-wider w-full text-center">
+                  {president.title}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Düzenleme Kurulu Başkanı -->
+      <div class="space-y-6 flex flex-col items-center text-center">
+        <h2
+          class="text-xl sm:text-2xl font-bold text-[#0B2545] border-b border-slate-100 pb-3 flex items-center justify-center gap-2.5 w-full"
+        >
+          <span>Düzenleme Kurulu Başkanı</span>
+        </h2>
+        <div class="flex justify-center max-w-md w-full">
+          <div
+            class="bg-gradient-to-br from-slate-50 to-blue-50/20 border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between border-t-4 border-t-[#0B2545] w-full text-center"
+          >
+            <div>
+              <h3 class="text-lg font-bold text-[#0B2545]">
+                {duzenlemeKurulu.baskan.name}
+              </h3>
+              <p class="text-sm font-medium text-slate-600 mt-1">
+                {duzenlemeKurulu.baskan.institution}
+              </p>
+            </div>
+            <p
+              class="text-xs font-semibold text-[#0B2545] mt-4 pt-3 border-t border-slate-200/50 uppercase tracking-wider w-full text-center"
+            >
+              {duzenlemeKurulu.baskan.title}
+            </p>
+          </div>
+        </div>
+      </div>
+
       <!-- Kurul Üyeleri (Committee Members) -->
       <div class="space-y-6">
         <h2

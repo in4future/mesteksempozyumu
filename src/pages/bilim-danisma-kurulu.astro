@@ -53,9 +53,6 @@ const sortedKurul = danismaKurulu.sort((a, b) =>
         class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8"
       >
         <div>
-          <h2 class="text-xl font-bold text-[#0B2545]">
-            Kurul Üyeleri Listesi
-          </h2>
           <p class="text-slate-500 text-xs mt-1">
             Toplam {sortedKurul.length} üye listelenmektedir.
           </p>
@@ -85,7 +82,7 @@ const sortedKurul = danismaKurulu.sort((a, b) =>
             <input
               type="text"
               id="search-input"
-              placeholder="İsim, üniversite veya e-posta ara..."
+              placeholder="İsim veya üniversite ara..."
               class="block w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0B2545] focus:border-transparent transition-all"
             />
           </div>
@@ -104,7 +101,6 @@ const sortedKurul = danismaKurulu.sort((a, b) =>
               >
                 <th class="py-4 px-6">Üye Adı Soyadı</th>
                 <th class="py-4 px-6">Kurumu / Üniversitesi</th>
-                <th class="py-4 px-6">Mail Adresi</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-200/60 bg-white">
@@ -116,24 +112,6 @@ const sortedKurul = danismaKurulu.sort((a, b) =>
                     </td>
                     <td class="py-4 px-6 text-sm text-slate-600 member-aff">
                       {member.affiliation}
-                    </td>
-                    <td class="py-4 px-6 text-sm member-email">
-                      {member.email ? (
-                        <a
-                          href={`mailto:${member.email}`}
-                          class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 hover:underline transition-colors font-medium"
-                        >
-                          <Icon
-                            name="mail"
-                            class="w-4 h-4 text-blue-500 shrink-0"
-                          />
-                          <span>{member.email}</span>
-                        </a>
-                      ) : (
-                        <span class="text-slate-400 font-normal italic">
-                          Belirtilmedi
-                        </span>
-                      )}
                     </td>
                   </tr>
                 ))
@@ -175,15 +153,10 @@ const sortedKurul = danismaKurulu.sort((a, b) =>
           row
             .querySelector(".member-aff")
             ?.textContent?.toLocaleLowerCase("tr") || "";
-        const email =
-          row
-            .querySelector(".member-email")
-            ?.textContent?.toLocaleLowerCase("tr") || "";
 
         if (
           name.includes(query) ||
-          aff.includes(query) ||
-          email.includes(query)
+          aff.includes(query)
         ) {
           row.classList.remove("hidden");
           matchCount++;
