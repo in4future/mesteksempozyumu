@@ -118,7 +118,7 @@ export const katilimPayi = {
   },
   ucretler: [
     { category: "Yüz Yüze Katılım Ücreti", fee: "2.500 TL", details: "Katılım belgesi, bildiri kitabı yayını, ikramlar ve çanta içeriği dahildir." },
-    { category: "Yüz Yüze Katılım İkinci Bildiri Ücreti", fee: "500 TL", details: "Yüz yüze katılım sağlayacak yazarların sunacağı ikinci bildiri için geçerli ek ücrettir." },
+    { category: "Yüz Yüze Katılım İkinci Bildiri Ücreti", fee: "1000 TL", details: "Yüz yüze katılım sağlayacak yazarların sunacağı ikinci bildiri için geçerli ek ücrettir." },
     { category: "Online Sunum Katılım Ücreti", fee: "1.500 TL", details: "E-katılım belgesi ve bildiri kitabı yayını dahildir." },
     { category: "Online İkinci Bildiri Ücreti", fee: "500 TL", details: "Online katılım sağlayacak yazarların sunacağı ikinci bildiri için geçerli ek ücrettir." }
   ]

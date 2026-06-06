@@ -18,7 +18,6 @@ export const navItems: NavItem[] = [
     ]
   },
   { name: "Tam Metin Gönderimi", href: "/tam-metin-gonderimi" },
-  { name: "Yazım Kuralları", href: "/yazim-kurallari" },
   { name: "Katılım Payı", href: "/katilim-payi" },
   { name: "İletişim", href: "/iletisim" }
 ];
