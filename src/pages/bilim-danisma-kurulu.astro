@@ -3,11 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 import { danismaKurulu } from "../data/siteData";
 
-// Combine both lists and sort alphabetically by last name (or simply by name for Turkish support)
+// Helper function to get title rank for hierarchical sorting
+const getTitleRank = (name: string): number => {
+  if (name.startsWith("Prof. Dr.")) return 1;
+  if (name.startsWith("Doç. Dr.")) return 2;
+  if (name.startsWith("Dr. Öğr. Üyesi")) return 3;
+  return 4; // Fallback for other/no titles
+};
 
-const sortedKurul = danismaKurulu.sort((a, b) =>
-  a.name.localeCompare(b.name, "tr"),
-);
+// Sort first by title hierarchy, then alphabetically by name within the same title
+const sortedKurul = [...danismaKurulu].sort((a, b) => {
+  const rankA = getTitleRank(a.name);
+  const rankB = getTitleRank(b.name);
+  if (rankA !== rankB) {
+    return rankA - rankB;
+  }
+  return a.name.localeCompare(b.name, "tr");
+});
 ---
 
 <Layout title="Bilim & Danışma Kurulu">
