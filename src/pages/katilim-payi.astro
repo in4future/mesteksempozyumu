@@ -150,42 +150,13 @@ import { katilimPayi } from '../data/siteData';
           </div>
 
           <!-- Bank Account Info -->
-          <div class="bg-[#0B2545] text-white rounded-2xl p-6 shadow-md space-y-6">
+          <div class="bg-[#0B2545] text-white rounded-2xl p-6 shadow-md space-y-4">
             <div class="border-b border-white/10 pb-4">
               <h3 class="font-bold text-lg text-white">Banka Hesap Bilgileri</h3>
-              <p class="text-[11px] text-slate-300 mt-1">Lütfen EFT/Havale açıklamasını kurallara uygun giriniz.</p>
             </div>
-
-            <div class="space-y-4 text-xs">
-              <div>
-                <p class="text-[10px] text-blue-300 uppercase font-semibold">Hesap Sahibi (Alıcı)</p>
-                <p class="font-bold text-white mt-0.5">{katilimPayi.bankaBilgileri.alici}</p>
-              </div>
-
-              <div>
-                <p class="text-[10px] text-blue-300 uppercase font-semibold">Banka ve Şube</p>
-                <p class="font-bold text-white mt-0.5">{katilimPayi.bankaBilgileri.banka}</p>
-              </div>
-
-              <div>
-                <p class="text-[10px] text-blue-300 uppercase font-semibold">IBAN</p>
-                <div class="flex items-center justify-between bg-white/10 rounded-lg p-2.5 mt-1 border border-white/10 group">
-                  <span class="font-mono font-bold text-white select-all">{katilimPayi.bankaBilgileri.iban}</span>
-                </div>
-              </div>
-
-              <div>
-                <p class="text-[10px] text-blue-300 uppercase font-semibold">Swift Kodu</p>
-                <p class="font-mono font-bold text-white mt-0.5">{katilimPayi.bankaBilgileri.swift}</p>
-              </div>
-
-              <div class="pt-3 border-t border-white/10">
-                <p class="text-[10px] text-blue-300 uppercase font-semibold">Transfer Açıklaması</p>
-                <div class="bg-amber-500/25 border border-amber-500/30 rounded-lg p-2.5 mt-1">
-                  <p class="font-bold text-xs text-amber-200 select-all">"{katilimPayi.bankaBilgileri.aciklamaSablon}"</p>
-                </div>
-              </div>
-            </div>
+            <p class="text-sm text-slate-350 leading-relaxed font-medium">
+              Banka hesap bilgileri daha sonra bildirilecektir.
+            </p>
           </div>
 
         </div>
