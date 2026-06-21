@@ -114,23 +114,6 @@ import { katilimPayi } from '../data/siteData';
         <!-- Sidebar - Bank Account & Deadlines -->
         <div class="lg:col-span-4 space-y-6">
           
-          <!-- Important Warning Note -->
-          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 space-y-4 shadow-sm">
-            <h3 class="font-bold text-amber-900 flex items-center gap-2 text-sm sm:text-base">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              <span>Önemli Ödeme Notu</span>
-            </h3>
-            <div class="text-xs sm:text-sm text-amber-800 space-y-2.5 leading-relaxed">
-              <p>
-                <strong>Ödeme yaparken açıklamalar kısmına yalnızca T.C. Kimlik numaranızı yazınız.</strong> Faturalandırma işlemleri için bu bilgi gereklidir.
-              </p>
-              <p class="font-semibold text-amber-950 border-t border-amber-200/60 pt-2.5">
-                ⚠️ Veri tabanımızda hata oluşmaması için açıklamalar kısmına "bildiri, sempozyum, kongre vs." gibi kelimeler kesinlikle yazmayınız.
-              </p>
-            </div>
-          </div>
 
           <!-- Important Deadlines -->
           <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm space-y-4">
@@ -150,14 +133,64 @@ import { katilimPayi } from '../data/siteData';
           </div>
 
           <!-- Bank Account Info -->
-          <div class="bg-[#0B2545] text-white rounded-2xl p-6 shadow-md space-y-4">
-            <div class="border-b border-white/10 pb-4">
+          <div class="bg-[#0B2545] text-white rounded-2xl p-6 shadow-md space-y-5">
+            <div class="border-b border-white/10 pb-3 flex items-center gap-2">
+              <Icon name="credit-card" class="w-5 h-5 text-blue-300" />
               <h3 class="font-bold text-lg text-white">Banka Hesap Bilgileri</h3>
             </div>
-            <p class="text-sm text-slate-350 leading-relaxed font-medium">
-              Banka hesap bilgileri daha sonra bildirilecektir.
-            </p>
+            
+            <div class="space-y-4">
+              <div>
+                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Banka:</p>
+                <p class="text-sm font-bold text-white mt-0.5">{katilimPayi.bankaBilgileri.banka}</p>
+              </div>
+
+              <div>
+                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Alıcı / Hesap Sahibi:</p>
+                <p class="text-sm font-bold text-white mt-0.5">{katilimPayi.bankaBilgileri.alici}</p>
+              </div>
+
+              <div class="bg-white/5 border border-white/10 rounded-xl p-3 space-y-1.5">
+                <div class="flex justify-between items-center">
+                  <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">IBAN:</p>
+                  <button 
+                    id="copy-iban" 
+                    class="text-[10px] bg-blue-600 hover:bg-blue-700 text-white font-semibold px-2 py-0.5 rounded transition-all flex items-center gap-1 cursor-pointer"
+                    data-iban={katilimPayi.bankaBilgileri.iban}
+                  >
+                    <span>Kopyala</span>
+                  </button>
+                </div>
+                <p class="text-xs sm:text-sm font-mono font-bold tracking-wider text-blue-200 select-all break-all pr-2 mt-1">
+                  {katilimPayi.bankaBilgileri.iban.replace(/(.{4})/g, '$1 ').trim()}
+                </p>
+              </div>
+            </div>
           </div>
+
+          <script>
+            const copyBtn = document.getElementById('copy-iban');
+            if (copyBtn) {
+              copyBtn.addEventListener('click', () => {
+                const iban = copyBtn.getAttribute('data-iban');
+                if (iban) {
+                  navigator.clipboard.writeText(iban).then(() => {
+                    const span = copyBtn.querySelector('span');
+                    if (span) {
+                      span.textContent = 'Kopyalandı!';
+                      copyBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                      copyBtn.classList.add('bg-emerald-600');
+                      setTimeout(() => {
+                        span.textContent = 'Kopyala';
+                        copyBtn.classList.remove('bg-emerald-600');
+                        copyBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                      }, 2000);
+                    }
+                  });
+                }
+              });
+            }
+          </script>
 
         </div>
       </div>

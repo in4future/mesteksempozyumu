@@ -198,10 +198,9 @@ export const danismaKurulu = [
 export const katilimPayi = {
   aciklama: "Sempozyuma katılım ücretleri, bildiri sahiplerinin sunum yapabilmesi, organizasyon giderleri ve kongre kitabının basım/yayım süreçleri için kullanılmaktadır. Ücretler katılım türüne göre değişiklik göstermektedir.",
   bankaBilgileri: {
-    alici: "Teknik Eğitim Vakfı İktisadi İşletmesi",
-    banka: "Vakıfbank / Ankara Şubesi",
-    iban: "TR98 0001 5001 5800 7302 xxxxxx",
-    swift: "VAKFTR2AXXX",
+    alici: "Bayram Arslanoğlu",
+    banka: "Ziraat Bankası",
+    iban: "TR590001004020031368615018",
     aciklamaSablon: "Yalnızca T.C. Kimlik Numaranızı yazınız"
   },
   ucretler: [
