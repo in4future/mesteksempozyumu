@@ -190,7 +190,7 @@ export const danismaKurulu = [
   { name: "Dr. Öğr. Üyesi Mustafa OĞUZ", affiliation: "Balıkesir Üniversitesi" },
   { name: "Dr. Öğr. Üyesi Necati YALÇIN", affiliation: "Gazi Üniversitesi" },
   { name: "Dr. Öğr. Üyesi Oğuz POYRAZOĞLU", affiliation: "Gazi Üniversitesi" },
-  { name: "Dr. Öğr. Üyesi Yasemin AŞÇI", affiliation: "Zonguldak Bülent Ecevit Üniversitesi" },
+  { name: "Dr. Öğr. Üyesi Yasemin AŞCI", affiliation: "Zonguldak Bülent Ecevit Üniversitesi" },
   { name: "Dr. Öğr. Üyesi Yasemin ÖZEL", affiliation: "Kastamonu Üniversitesi" },
   { name: "Dr. Öğr. Üyesi Yusuf SİYAMBAŞ", affiliation: "Erzincan Binali Yıldırım Üniversitesi" }
 ];
