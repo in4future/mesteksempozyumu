@@ -1,26 +1,38 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.astro';
-import { katilimPayi } from '../data/siteData';
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import { katilimPayi } from "../data/siteData";
 ---
 
 <Layout title="Katılım Payı">
   <!-- Page Header -->
-  <section class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-16">
+  <section
+    class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-16"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+      >
         <div>
-          <nav class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3" aria-label="Ekmek Kırıntısı">
+          <nav
+            class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3"
+            aria-label="Ekmek Kırıntısı"
+          >
             <a href="/" class="hover:text-white transition-colors">Ana Sayfa</a>
             <Icon name="chevron-right" class="w-3.5 h-3.5" />
             <span class="text-white">Katılım Payı</span>
           </nav>
-          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Katılım Payı ve Ödemeler</h1>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Katılım Payı ve Ödemeler
+          </h1>
           <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
-            Katılım kategorilerine göre ücretlendirmeler, banka bilgileri ve ödeme süreçleri.
+            Katılım kategorilerine göre ücretlendirmeler, banka bilgileri ve
+            ödeme süreçleri.
           </p>
         </div>
-        <div class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block">
+        <div
+          class="shrink-0 bg-white/10 p-3 rounded-xl border border-white/20 hidden md:block"
+        >
           <Icon name="credit-card" class="w-10 h-10 text-blue-200" />
         </div>
       </div>
@@ -33,157 +45,259 @@ import { katilimPayi } from '../data/siteData';
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Fees Tables -->
         <div class="lg:col-span-8 space-y-8">
-          
           <div class="space-y-4">
-            <h2 class="text-2xl font-bold text-[#0B2545]">Katılım Kategorileri ve Ücretleri</h2>
+            <h2 class="text-2xl font-bold text-[#0B2545]">
+              Katılım Kategorileri ve Ücretleri
+            </h2>
             <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
-              {katilimPayi.aciklama} Katılımcıların ödemelerini gerçekleştirdikten sonra dekontlarını sekreterliğe iletmeleri veya başvuru sistemine yüklemeleri gerekmektedir.
+              {katilimPayi.aciklama} Katılımcıların ödemelerini gerçekleştirdikten
+              sonra dekontlarını sekreterliğe iletmeleri veya başvuru sistemine yüklemeleri
+              gerekmektedir.
             </p>
           </div>
 
           <!-- Fees List Grid -->
           <div class="space-y-4">
-            {katilimPayi.ucretler.map((item) => (
-              <div class="bg-slate-50 border border-slate-100 hover:border-blue-200 rounded-2xl p-6 transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div class="space-y-1">
-                  <h3 class="font-bold text-[#0B2545] text-base">{item.category}</h3>
-                  <p class="text-xs text-slate-500 leading-relaxed max-w-md">{item.details}</p>
+            {
+              katilimPayi.ucretler.map((item) => (
+                <div class="bg-slate-50 border border-slate-100 hover:border-blue-200 rounded-2xl p-6 transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                  <div class="space-y-1">
+                    <h3 class="font-bold text-[#0B2545] text-base">
+                      {item.category}
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed max-w-md">
+                      {item.details}
+                    </p>
+                  </div>
+                  <div class="shrink-0 self-end sm:self-center">
+                    <span class="text-lg sm:text-xl font-extrabold text-[#0B2545] bg-white border border-slate-200 rounded-xl px-4 py-2 shadow-sm block text-center min-w-[120px]">
+                      {item.fee}
+                    </span>
+                  </div>
                 </div>
-                <div class="shrink-0 self-end sm:self-center">
-                  <span class="text-lg sm:text-xl font-extrabold text-[#0B2545] bg-white border border-slate-200 rounded-xl px-4 py-2 shadow-sm block text-center min-w-[120px]">
-                    {item.fee}
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
 
           <!-- Faturalandırma Info Box -->
-          <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6 space-y-3">
-            <h4 class="font-bold text-[#0B2545] text-sm flex items-center gap-2">
+          <div
+            class="bg-blue-50 border border-blue-100 rounded-2xl p-6 space-y-3"
+          >
+            <h4
+              class="font-bold text-[#0B2545] text-sm flex items-center gap-2"
+            >
               <Icon name="info" class="w-5 h-5 text-blue-600" />
               <span>Faturalandırma ve Belgelendirme</span>
             </h4>
             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-              Ödemeleriniz karşılığında Teknik Eğitim Vakfı İktisadi İşletmesi tarafından fatura düzenlenecektir. Faturalandırma için T.C. Kimlik numaranız zorunludur.
+              Ödemeleriniz karşılığında Teknik Eğitim Vakfı İktisadi İşletmesi
+              tarafından fatura düzenlenecektir. Faturalandırma için T.C. Kimlik
+              numaranız zorunludur.
             </p>
           </div>
 
           <!-- Katılım Payı Neleri Kapsar? -->
-          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 space-y-4">
-            <h3 class="text-lg font-bold text-[#0B2545] flex items-center gap-2">
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-2xl p-6 space-y-4"
+          >
+            <h3
+              class="text-lg font-bold text-[#0B2545] flex items-center gap-2"
+            >
               <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
               <span>Katılım Payı Neleri Kapsar?</span>
             </h3>
             <ul class="space-y-3 text-slate-700 text-sm">
               <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                <svg
+                  class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span>Bildiri özet ve tam metinlerinin kongre kitabında yayınlanması</span>
+                <span
+                  >Bildiri özet ve tam metinlerinin kongre kitabında
+                  yayınlanması</span
+                >
               </li>
               <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                <svg
+                  class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span>Sunulan bildirilerin tüm yazarları için ayrı ayrı katılım belgesi</span>
+                <span
+                  >Sunulan bildirilerin tüm yazarları için ayrı ayrı katılım
+                  belgesi</span
+                >
               </li>
             </ul>
           </div>
 
           <!-- Ücret İade Prosedürü -->
-          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 space-y-4">
-            <h3 class="text-lg font-bold text-[#0B2545] flex items-center gap-2">
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-2xl p-6 space-y-4"
+          >
+            <h3
+              class="text-lg font-bold text-[#0B2545] flex items-center gap-2"
+            >
               <span class="w-1.5 h-6 bg-[#0B2545] rounded"></span>
               <span>Ücret İade Prosedürü</span>
             </h3>
             <div class="space-y-3 text-slate-700 text-sm">
               <div class="flex items-start gap-3">
-                <div class="w-1.5 h-1.5 rounded-full bg-[#134074] mt-2 shrink-0"></div>
-                <p>Son tam metin gönderim tarihine kadar yapılan iptal taleplerinde ücretin yarısı iade edilir.</p>
+                <div
+                  class="w-1.5 h-1.5 rounded-full bg-[#134074] mt-2 shrink-0"
+                >
+                </div>
+                <p>
+                  Son tam metin gönderim tarihine kadar yapılan iptal
+                  taleplerinde ücretin yarısı iade edilir.
+                </p>
               </div>
               <div class="flex items-start gap-3">
-                <div class="w-1.5 h-1.5 rounded-full bg-[#134074] mt-2 shrink-0"></div>
-                <p>Kongre programı yayınlandıktan sonra yapılacak iptal talepleri ya da herhangi bir sebeple kongreye katılmama durumunda iade yapılamamaktadır.</p>
+                <div
+                  class="w-1.5 h-1.5 rounded-full bg-[#134074] mt-2 shrink-0"
+                >
+                </div>
+                <p>
+                  Sempozyum programı yayınlandıktan sonra yapılacak iptal
+                  talepleri ya da herhangi bir sebeple sempozyuma katılmama
+                  durumunda iade yapılamamaktadır.
+                </p>
               </div>
             </div>
           </div>
-
         </div>
 
         <!-- Sidebar - Bank Account & Deadlines -->
         <div class="lg:col-span-4 space-y-6">
-          
-
           <!-- Important Deadlines -->
-          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm space-y-4">
+          <div
+            class="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm space-y-4"
+          >
             <h3 class="font-bold text-[#0B2545]">Ödeme Tarihi</h3>
-            <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-center gap-3">
+            <div
+              class="p-4 bg-white border border-slate-200 rounded-xl flex items-center gap-3"
+            >
               <div class="p-2 rounded bg-amber-500/10 text-amber-600">
                 <Icon name="calendar" class="w-5 h-5" />
               </div>
               <div>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Son Ödeme Tarihi:</p>
-                <p class="text-sm font-extrabold text-[#0B2545]">16 Ekim 2026</p>
+                <p
+                  class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                >
+                  Son Ödeme Tarihi:
+                </p>
+                <p class="text-sm font-extrabold text-[#0B2545]">
+                  16 Ekim 2026
+                </p>
               </div>
             </div>
             <p class="text-[11px] text-slate-500 leading-relaxed italic">
-              * Bu tarihe kadar katılım payını yatırmayan yazarların bildirileri sempozyum programına dahil edilmeyecektir.
+              * Bu tarihe kadar katılım payını yatırmayan yazarların bildirileri
+              sempozyum programına dahil edilmeyecektir.
             </p>
           </div>
 
           <!-- Bank Account Info -->
-          <div class="bg-[#0B2545] text-white rounded-2xl p-6 shadow-md space-y-5">
+          <div
+            class="bg-[#0B2545] text-white rounded-2xl p-6 shadow-md space-y-5"
+          >
             <div class="border-b border-white/10 pb-3 flex items-center gap-2">
               <Icon name="credit-card" class="w-5 h-5 text-blue-300" />
-              <h3 class="font-bold text-lg text-white">Banka Hesap Bilgileri</h3>
+              <h3 class="font-bold text-lg text-white">
+                Banka Hesap Bilgileri
+              </h3>
             </div>
-            
+
             <div class="space-y-4">
               <div>
-                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Banka:</p>
-                <p class="text-sm font-bold text-white mt-0.5">{katilimPayi.bankaBilgileri.banka}</p>
+                <p
+                  class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider"
+                >
+                  Banka:
+                </p>
+                <p class="text-sm font-bold text-white mt-0.5">
+                  {katilimPayi.bankaBilgileri.banka}
+                </p>
               </div>
 
               <div>
-                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Alıcı / Hesap Sahibi:</p>
-                <p class="text-sm font-bold text-white mt-0.5">{katilimPayi.bankaBilgileri.alici}</p>
+                <p
+                  class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider"
+                >
+                  Alıcı / Hesap Sahibi:
+                </p>
+                <p class="text-sm font-bold text-white mt-0.5">
+                  {katilimPayi.bankaBilgileri.alici}
+                </p>
               </div>
 
-              <div class="bg-white/5 border border-white/10 rounded-xl p-3 space-y-1.5">
+              <div
+                class="bg-white/5 border border-white/10 rounded-xl p-3 space-y-1.5"
+              >
                 <div class="flex justify-between items-center">
-                  <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">IBAN:</p>
-                  <button 
-                    id="copy-iban" 
+                  <p
+                    class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider"
+                  >
+                    IBAN:
+                  </p>
+                  <button
+                    id="copy-iban"
                     class="text-[10px] bg-blue-600 hover:bg-blue-700 text-white font-semibold px-2 py-0.5 rounded transition-all flex items-center gap-1 cursor-pointer"
                     data-iban={katilimPayi.bankaBilgileri.iban}
                   >
                     <span>Kopyala</span>
                   </button>
                 </div>
-                <p class="text-xs sm:text-sm font-mono font-bold tracking-wider text-blue-200 select-all break-all pr-2 mt-1">
-                  {katilimPayi.bankaBilgileri.iban.replace(/(.{4})/g, '$1 ').trim()}
+                <p
+                  class="text-xs sm:text-sm font-mono font-bold tracking-wider text-blue-200 select-all break-all pr-2 mt-1"
+                >
+                  {
+                    katilimPayi.bankaBilgileri.iban
+                      .replace(/(.{4})/g, "$1 ")
+                      .trim()
+                  }
                 </p>
               </div>
             </div>
           </div>
 
           <script>
-            const copyBtn = document.getElementById('copy-iban');
+            const copyBtn = document.getElementById("copy-iban");
             if (copyBtn) {
-              copyBtn.addEventListener('click', () => {
-                const iban = copyBtn.getAttribute('data-iban');
+              copyBtn.addEventListener("click", () => {
+                const iban = copyBtn.getAttribute("data-iban");
                 if (iban) {
                   navigator.clipboard.writeText(iban).then(() => {
-                    const span = copyBtn.querySelector('span');
+                    const span = copyBtn.querySelector("span");
                     if (span) {
-                      span.textContent = 'Kopyalandı!';
-                      copyBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
-                      copyBtn.classList.add('bg-emerald-600');
+                      span.textContent = "Kopyalandı!";
+                      copyBtn.classList.remove(
+                        "bg-blue-600",
+                        "hover:bg-blue-700",
+                      );
+                      copyBtn.classList.add("bg-emerald-600");
                       setTimeout(() => {
-                        span.textContent = 'Kopyala';
-                        copyBtn.classList.remove('bg-emerald-600');
-                        copyBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                        span.textContent = "Kopyala";
+                        copyBtn.classList.remove("bg-emerald-600");
+                        copyBtn.classList.add(
+                          "bg-blue-600",
+                          "hover:bg-blue-700",
+                        );
                       }, 2000);
                     }
                   });
@@ -191,7 +305,6 @@ import { katilimPayi } from '../data/siteData';
               });
             }
           </script>
-
         </div>
       </div>
     </div>

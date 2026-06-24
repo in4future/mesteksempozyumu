@@ -39,19 +39,19 @@ export const importantDates = [
     description: "Kabul edilen bildirilerin sempozyum programına eklenmesi için son ödeme tarihi."
   },
   {
-    title: "Kongre Programının İlanı",
+    title: "Sempozyum Programının İlanı",
     date: "30 EKİM 2026",
     icon: "calendar",
     description: "Sempozyum oturum planı ve sunum saatlerinin web sitesinde duyurulması."
   },
   {
-    title: "Kongre Tarihleri",
+    title: "Sempozyum Tarihleri",
     date: "5-6 KASIM 2026",
     icon: "users",
     description: "Oturumların Gazi Üniversitesi yerleşkesinde yüz yüze ve online olarak gerçekleştirilmesi."
   },
   {
-    title: "Kongre Kitabının Yayını",
+    title: "Sempozyum Kitabının Yayını",
     date: "20 KASIM 2026",
     icon: "book-open",
     description: "ISBN'li Bildiri Kitabının e-kitap olarak web sitesinde yayınlanması."
