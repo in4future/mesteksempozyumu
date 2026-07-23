@@ -223,3 +223,81 @@ export const yazimKurallari = {
     "Tam metinlerinizde ÖZET, GİRİŞ, ARAŞTIRMA VE BULGULAR, SONUÇ ve KAYNAKÇA bölümlerinin ayrı başlıklar altında gösterilmesi gerekmektedir."
   ]
 };
+
+export const ulasimVeKonaklama = {
+  ulasim: {
+    asti: {
+      title: "AŞTİ (Şehirlerarası Otogar)'dan Ulaşım",
+      description: "Ankara Şehirlerarası Otobüs Terminali (AŞTİ)'den Gazi Üniversitesi Beşevler Yerleşkesine ulaşım son derece kolay ve hızlıdır.",
+      options: [
+        {
+          title: "Ankaray (Hafif Raylı Sistem)",
+          icon: "navigation",
+          badge: "En Hızlı & Pratik",
+          description: "AŞTİ içerisinde bulunan Ankaray istasyonundan Ankaray'a binerek 'Beşevler' durağında ininiz. Beşevler durağından çıktıktan sonra sempozyumun gerçekleşeceği Gazi Üniversitesi Rektörlük / Teknoloji Fakültesi kampüsü yaklaşık 5 dakikalık yürüme mesafesindedir.",
+          duration: "Yaklaşık 10 - 15 Dakika"
+        },
+        {
+          title: "Taksi veya Dolmuş",
+          icon: "bus",
+          badge: "Doğrudan Kapıda",
+          description: "AŞTİ terminal çıkışından Beşevler / Teknikokullar güzergahına giden minibüs/dolmuşları tercih edebilir veya taksi kullanarak yaklaşık 5-10 dakikada doğrudan kampüs giriş kapısına ulaşabilirsiniz.",
+          duration: "Yaklaşık 5 - 10 Dakika"
+        }
+      ]
+    },
+    havalimani: {
+      title: "Esenboğa Havalimanı'ndan Ulaşım",
+      description: "Ankara Esenboğa Havalimanı'ndan (ESB) Gazi Üniversitesi Beşevler Yerleşkesine ulaşım seçenekleri:",
+      options: [
+        {
+          title: "HAVAŞ / Belko Air / EGO 442 Otobüsleri",
+          icon: "bus",
+          badge: "Ekonomik Ulaşım",
+          description: "Havalimanı iç ve dış hatlar çıkışında yer alan HAVAŞ veya EGO 442 otobüsleri ile AŞTİ (Otogar) ya da Kızılay durağına kadar seyahat edebilirsiniz. AŞTİ veya Kızılay'dan Ankaray (Hafif Raylı Sistem) aktarması yaparak 'Beşevler' durağında inip kampüse ulaşabilirsiniz.",
+          duration: "Otobüs ~45-60 dk + Ankaray ~10 dk"
+        },
+        {
+          title: "Taksi veya Özel Transfer",
+          icon: "plane",
+          badge: "Konforlu Ulaşım",
+          description: "Esenboğa Havalimanı'ndan doğrudan Gazi Üniversitesi Beşevler Yerleşkesine (Teknikokullar) taksi veya özel transfer araçları ile Özal Bulvarı (Protokol Yolu) üzerinden kesintisiz ulaşım sağlayabilirsiniz.",
+          duration: "Yaklaşık 35 - 45 Dakika (Trafik durumuna bağlı)"
+        }
+      ]
+    }
+  },
+  konaklama: {
+    title: "Tavsiye Edilen Konaklama Tesisleri",
+    subtitle: "Sempozyum katılımcılarımız için Gazi Üniversitesi kampüsüne ve etkinlik alanına yürüme mesafesindeki konforlu kamu/sosyal tesis konaklama önerileri.",
+    notice: "Sempozyum organizasyon komitesi konaklama rezervasyonlarını doğrudan üstlenmemektedir. Katılımcılarımızın rezervasyon ve detaylı bilgi için ilgili kurumlar ile doğrudan iletişime geçmeleri rica olunur.",
+    places: [
+      {
+        id: "tvf-misafirhanesi",
+        name: "TVF Misafirhanesi (Volley Hotel Ankara)",
+        tag: "Kampüse En Yakın Tesis",
+        description: "Türkiye Voleybol Federasyonu bünyesinde hizmet veren, sempozyum alanına en yakın konumda bulunan modern ve tam donanımlı misafirhane/otel kompleksidir.",
+        address: "Emniyet Mah. Milas Sok. No:9, Beşevler / Yenimahalle / Ankara",
+        phone: "0 (312) 221 33 05",
+        website: "https://volleyhotelankara.com/",
+        mapsUrl: "https://maps.google.com/?q=TVF+Otel+Ankara+Be%C5%9Fevler",
+        distance: "Kampüse en yakın konaklama tesisi (~550 metre)",
+        features: ["Modern Konforlu Odalar", "Açık Büfe Kahvaltı", "Spor Tesisleri", "Otopark"]
+      },
+      {
+        id: "ogretmenevi",
+        name: "Başkent Öğretmenevi (Gazi Öğretmenevi)",
+        tag: "Kamu Sosyal Tesisi",
+        description: "Beşevler bölgesinde, sempozyumun düzenleneceği Gazi Üniversitesi Teknoloji Fakültesi ve Rektörlük yerleşkesine yakın konumda bulunan konforlu ve yüksek kaliteli kamu konaklama tesisidir.",
+        note: "İletişime geçilmesi kaydıyla duble oda 1480 TL'den yararlanabilirsiniz.",
+        address: "Emniyet Mah. Gazeteci Yazar Muammer Aksoy Cad. No:2, Beşevler / Yenimahalle / Ankara",
+        phone: "0 (312) 212 96 40",
+        website: "https://baskentogretmenevi.meb.k12.tr/",
+        mapsUrl: "https://maps.google.com/?q=Ba%C5%9Fkent+%C3%96%C4%9Fretmenevi+Ankara",
+        distance: "Kampüse ~1000 metre mesafede",
+        features: ["Restoran & Kafe", "Ücretsiz Wi-Fi", "Otopark Hizmeti", "24 Saat Resepsiyon"]
+      }
+    ]
+  }
+};
+

@@ -18,7 +18,7 @@ interface Props {
 const { 
   title = siteConfig.title, 
   description = `${siteConfig.fullName} - ${siteConfig.slogan}`,
-  showPopup = false,
+  showPopup = true,
   hidePartnersFooter = false
 } = Astro.props;
 
@@ -407,6 +407,11 @@ const currentPath = Astro.url.pathname;
       closeBottomBtn?.addEventListener('click', closePopup);
       popup?.addEventListener('click', (e) => {
         if (e.target === popup) {
+          closePopup();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
           closePopup();
         }
       });
