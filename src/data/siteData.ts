@@ -301,3 +301,20 @@ export const ulasimVeKonaklama = {
   }
 };
 
+export const sponsors = [
+  {
+    name: "Türkiye İş Kurumu (İŞKUR)",
+    shortName: "İŞKUR",
+    logo: "/iskur-logo.png",
+    website: "https://www.iskur.gov.tr/",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Magnum Mühendislik",
+    shortName: "Magnum Mühendislik",
+    logo: "/magnum-muhendislik.png",
+    website: "http://www.magnumeng.com/",
+    description: "Sempozyum Sponsoru"
+  }
+];
+
