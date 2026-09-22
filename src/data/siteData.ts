@@ -313,7 +313,7 @@ export const sponsors = [
     name: "Magnum Mühendislik",
     shortName: "Magnum Mühendislik",
     logo: "/magnum-muhendislik.png",
-    website: "http://www.magnumeng.com/",
+    website: "",
     description: "Sempozyum Sponsoru"
   }
 ];
