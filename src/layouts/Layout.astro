@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 import logoImg from '../assets/logo.png';
 import gaziLogo from '../assets/gazi_logo.png';
 import tekevLogo from '../assets/tekev_logo.png';
+import GuideModal from '../components/GuideModal.astro';
 
 interface Props {
   title?: string;
@@ -345,6 +346,9 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
     )}
+
+    <!-- Guide Modal -->
+    <GuideModal />
 
     <!-- Interactive Scripts -->
     <script>

@@ -30,16 +30,14 @@ import Icon from "../components/Icon.astro";
           </p>
         </div>
         <div class="shrink-0 flex items-center gap-3">
-          <a
-            href="https://mestek2026kongre.projesi.com.tr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-white text-[#0B2545] font-bold px-5 py-3 rounded-xl shadow-lg hover:bg-slate-100 active:bg-slate-200 transition-all text-sm group"
+          <button
+            type="button"
+            data-open-guide-modal
+            class="inline-flex items-center gap-2 bg-white text-[#0B2545] font-bold px-5 py-3 rounded-xl shadow-lg hover:bg-slate-100 active:bg-slate-200 transition-all text-sm group cursor-pointer"
           >
             <Icon name="send" class="w-4 h-4 text-[#0B2545] group-hover:scale-110 transition-transform" />
             <span>Online Bildiri Gönder</span>
-            <Icon name="external-link" class="w-3.5 h-3.5 opacity-70" />
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -96,15 +94,14 @@ import Icon from "../components/Icon.astro";
                 MESTEK'26 bildiri başvurularınızı online kongre sistemi üzerinden doğrudan gönderebilirsiniz.
               </p>
             </div>
-            <a
-              href="https://mestek2026kongre.projesi.com.tr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 bg-[#0B2545] hover:bg-[#134074] text-white font-bold px-6 py-3 rounded-xl shadow hover:shadow-md transition-all text-sm shrink-0 group"
+            <button
+              type="button"
+              data-open-guide-modal
+              class="inline-flex items-center justify-center gap-2 bg-[#0B2545] hover:bg-[#134074] text-white font-bold px-6 py-3 rounded-xl shadow hover:shadow-md transition-all text-sm shrink-0 group cursor-pointer"
             >
+              <Icon name="send" class="w-4 h-4 text-blue-200 group-hover:scale-110 transition-transform" />
               <span>Bildiri Gönder</span>
-              <Icon name="external-link" class="w-4 h-4 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </button>
           </div>
 
           <!-- YÖK ORCID Requirement -->
@@ -236,16 +233,14 @@ import Icon from "../components/Icon.astro";
               Tam metinlerinizi online bildiri yönetim sistemi üzerinden veya Word formatında e-posta ile iletebilirsiniz.
             </p>
 
-            <a
-              href="https://mestek2026kongre.projesi.com.tr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center gap-2 w-full text-center bg-[#0B2545] hover:bg-[#134074] text-white text-xs sm:text-sm font-bold py-3.5 px-4 rounded-xl shadow-md hover:shadow-lg transition-all group"
+            <button
+              type="button"
+              data-open-guide-modal
+              class="flex items-center justify-center gap-2 w-full text-center bg-[#0B2545] hover:bg-[#134074] text-white text-xs sm:text-sm font-bold py-3.5 px-4 rounded-xl shadow-md hover:shadow-lg transition-all group cursor-pointer"
             >
               <Icon name="send" class="w-4 h-4 text-blue-200 group-hover:scale-110 transition-transform" />
               <span>Online Bildiri Gönder</span>
-              <Icon name="external-link" class="w-3.5 h-3.5 text-blue-200 opacity-80" />
-            </a>
+            </button>
 
             <div
               class="bg-white border border-slate-200 rounded-xl p-4 space-y-2.5"
