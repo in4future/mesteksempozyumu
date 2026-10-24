@@ -130,6 +130,8 @@ const currentPath = Astro.url.pathname;
               return (
                 <a
                   href={item.href}
+                  target={item.target}
+                  rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
                   class={`px-4 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 ${
                     isActive 
                       ? 'bg-[#0B2545] text-white shadow-sm' 
@@ -193,6 +195,8 @@ const currentPath = Astro.url.pathname;
             return (
               <a
                 href={item.href}
+                target={item.target}
+                rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
                 class={`block px-4 py-3 rounded-lg text-base font-semibold ${
                   isActive 
                     ? 'bg-[#0B2545] text-white shadow-sm' 
@@ -265,7 +269,12 @@ const currentPath = Astro.url.pathname;
             <ul class="space-y-2.5 text-sm">
               {navItems.flatMap((item) => item.children ? item.children : [item]).map((item) => (
                 <li>
-                  <a href={item.href} class="hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                  <a 
+                    href={item.href} 
+                    target={item.target} 
+                    rel={item.target === '_blank' ? 'noopener noreferrer' : undefined} 
+                    class="hover:text-white transition-colors duration-150 flex items-center gap-1.5 group"
+                  >
                     <Icon name="chevron-right" class="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 transition-transform" />
                     <span>{item.name}</span>
                   </a>
