@@ -315,6 +315,62 @@ export const sponsors = [
     logo: "/magnum-muhendislik.png",
     website: "",
     description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Lockcell",
+    shortName: "Lockcell",
+    logo: "/lockcell.jpeg",
+    website: "",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Festo",
+    shortName: "Festo",
+    logo: "/Festo.png",
+    website: "",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Siemens",
+    shortName: "Siemens",
+    logo: "/siemens.png",
+    website: "",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Edutes",
+    shortName: "Edutes",
+    logo: "/Edutes.png",
+    website: "",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Ency",
+    shortName: "Ency",
+    logo: "/ency.jpeg",
+    website: "",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Turkcoil",
+    shortName: "Turkcoil",
+    logo: "/turkcoil.png",
+    website: "",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Akifsan",
+    shortName: "Akifsan",
+    logo: "/akifsan.png",
+    website: "",
+    description: "Sempozyum Sponsoru"
+  },
+  {
+    name: "Rownd",
+    shortName: "Rownd",
+    logo: "/Rownd.png",
+    website: "",
+    description: "Sempozyum Sponsoru"
   }
 ];
 

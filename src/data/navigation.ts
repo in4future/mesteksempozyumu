@@ -20,8 +20,15 @@ export const navItems: NavItem[] = [
     ]
   },
   { name: "Tam Metin Gönderimi", href: "/tam-metin-gonderimi" },
+  {
+    name: "Program",
+    children: [
+      { name: "Yüzyüze", href: "/mestek-26-program.pdf", target: "_blank" },
+      { name: "Çevrimiçi", href: "/mestek-26-cevrimici-program.pdf", target: "_blank" }
+    ]
+  },
   { name: "Katılım Payı", href: "/katilim-payi" },
-  { name: "Akademik Teşvik", href: "/gorevlendirme.pdf", target: "_blank" },
+  { name: "Hakkında", href: "/sempozyum-hakkinda" },
   { name: "Ulaşım ve Konaklama", href: "/ulasim-ve-konaklama" },
   { name: "İletişim", href: "/iletisim" }
 ];
