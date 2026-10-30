@@ -339,16 +339,54 @@ const currentPath = Astro.url.pathname;
 
           <!-- Poster Image Container -->
           <div class="overflow-y-auto flex-grow p-2 bg-slate-100 flex flex-col items-center">
-            <img src="/afis.jpg" alt="MESTEK'26 Sempozyum Afişi" class="w-full h-auto object-contain rounded-lg shadow-sm" />
+            <img src="/afis.png" alt="MESTEK'26 Sempozyum Programı" class="w-full h-auto object-contain rounded-lg shadow-sm" />
           </div>
 
           <!-- Controls Bar -->
-          <div class="px-6 py-4 bg-white border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <label class="flex items-center gap-2.5 text-sm font-semibold text-slate-500 cursor-pointer select-none">
+          <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-3.5">
+            <!-- Program Detayları -->
+            <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
+              <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                <Icon name="document" class="w-4.5 h-4.5 text-[#0B2545]" />
+                Program Detayları:
+              </span>
+              <div class="flex items-center gap-2.5">
+                <a
+                  href="/mestek-26-program.pdf"
+                  download="mestek-26-program.pdf"
+                  target="_blank"
+                  class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-[#0B2545] hover:bg-[#134074] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-sm transition-all hover:shadow hover:-translate-y-0.5 active:translate-y-0"
+                  title="MESTEK'26 Programını İndir"
+                >
+                  <span>Program</span>
+                  <Icon name="download" class="w-4 h-4 text-blue-200" />
+                </a>
+                <a
+                  href="/mestek-26-cevrimici-program.pdf"
+                  download="mestek-26-cevrimici-program.pdf"
+                  target="_blank"
+                  class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-[#0B2545] hover:bg-[#134074] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-sm transition-all hover:shadow hover:-translate-y-0.5 active:translate-y-0"
+                  title="MESTEK'26 Çevrimiçi Programını İndir"
+                >
+                  <span>Çevrimiçi Program</span>
+                  <Icon name="download" class="w-4 h-4 text-blue-200" />
+                </a>
+              </div>
+            </div>
+
+            <!-- "Bir daha gösterme" seçeneği (şimdilik gizlendi) -->
+            <!--
+            <label class="hidden items-center gap-2.5 text-sm font-semibold text-slate-500 cursor-pointer select-none">
               <input type="checkbox" id="dont-show-checkbox" class="w-4.5 h-4.5 text-[#0B2545] border-slate-350 rounded focus:ring-[#0B2545]" />
               <span>Bir daha gösterme</span>
             </label>
-            <button id="close-popup-bottom-btn" class="w-full sm:w-auto px-6 py-2.5 bg-[#0B2545] hover:bg-[#134074] active:bg-[#0B2545] text-white font-bold text-sm rounded-xl shadow-md transition-colors duration-150">
+            -->
+
+            <!-- Kapat Butonu -->
+            <button
+              id="close-popup-bottom-btn"
+              class="w-full sm:w-auto px-6 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition-colors duration-150 inline-flex items-center justify-center"
+            >
               Kapat
             </button>
           </div>
@@ -393,9 +431,8 @@ const currentPath = Astro.url.pathname;
       const closeBottomBtn = document.getElementById('close-popup-bottom-btn');
       const checkbox = document.getElementById('dont-show-checkbox') as HTMLInputElement | null;
 
-      const isHidden = localStorage.getItem('metesem_hide_popup') === 'true';
-
-      if (!isHidden && popup) {
+      // "Bir daha gösterme" şimdilik devre dışı bırakıldığı için popup her ziyaretçiye gösterilir
+      if (popup) {
         setTimeout(() => {
           popup.classList.remove('opacity-0', 'pointer-events-none');
           const modalBox = popup.querySelector('.transform');
