@@ -8,19 +8,22 @@ import logoImg from '../assets/logo.png';
 import gaziLogo from '../assets/gazi_logo.png';
 import tekevLogo from '../assets/tekev_logo.png';
 import GuideModal from '../components/GuideModal.astro';
+import Sponsors from '../components/Sponsors.astro';
 
 interface Props {
   title?: string;
   description?: string;
   showPopup?: boolean;
   hidePartnersFooter?: boolean;
+  hideSponsorsFooter?: boolean;
 }
 
 const { 
   title = siteConfig.title, 
   description = `${siteConfig.fullName} - ${siteConfig.slogan}`,
   showPopup = true,
-  hidePartnersFooter = false
+  hidePartnersFooter = false,
+  hideSponsorsFooter = false
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -223,18 +226,18 @@ const currentPath = Astro.url.pathname;
 
     <!-- İş Birliği Yapan Kurumlar -->
     {!hidePartnersFooter && (
-      <section class="py-12 bg-slate-50 border-t border-slate-100">
+      <section class="py-12 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">İş Birliği Yapan Kurumlar</p>
           <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <a href="https://gazi.edu.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white py-3 px-5 rounded-2xl border border-slate-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
+            <a href="https://gazi.edu.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-slate-50 py-3 px-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
               <Image src={gaziLogo} alt="Gazi Üniversitesi Logo" class="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300" />
               <div class="flex flex-col text-left">
                 <span class="text-sm sm:text-base font-bold text-[#0B2545] tracking-tight group-hover:text-blue-900 transition-colors">GAZİ ÜNİVERSİTESİ</span>
                 <span class="text-[9px] sm:text-[10px] font-semibold text-[#134074]/80 tracking-wider">TEKNOLOJİ FAKÜLTESİ</span>
               </div>
             </a>
-            <a href="https://tekev.org.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white py-3 px-5 rounded-2xl border border-slate-50 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
+            <a href="https://tekev.org.tr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-slate-50 py-3 px-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
               <Image src={tekevLogo} alt="TEKEV Logo" class="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300" />
               <div class="flex flex-col text-left">
                 <span class="text-sm sm:text-base font-bold text-[#0B2545] tracking-tight group-hover:text-blue-900 transition-colors">TEKEV</span>
@@ -244,6 +247,11 @@ const currentPath = Astro.url.pathname;
           </div>
         </div>
       </section>
+    )}
+
+    <!-- Sponsorlar Bölümü -->
+    {!hideSponsorsFooter && (
+      <Sponsors />
     )}
 
     <!-- Footer -->
@@ -362,7 +370,7 @@ const currentPath = Astro.url.pathname;
                   class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-[#0B2545] hover:bg-[#134074] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-sm transition-all hover:shadow hover:-translate-y-0.5 active:translate-y-0"
                   title="MESTEK'26 Programını İndir"
                 >
-                  <span>Program</span>
+                  <span>Yüzyüze Program</span>
                   <Icon name="download" class="w-4 h-4 text-blue-200" />
                 </a>
                 <a
