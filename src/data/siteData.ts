@@ -371,6 +371,13 @@ export const sponsors = [
     logo: "/Rownd.png",
     website: "",
     description: "Sempozyum Sponsoru"
+  },
+    {
+    name: "Deep Zeka",
+    shortName: "deepzeka",
+    logo: "/deep-zeka.svg",
+    website: "",
+    description: "Sempozyum Sponsoru"
   }
 ];
 
