@@ -1,0 +1,442 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import type { ImageMetadata } from "astro";
+import { Image, getImage } from "astro:assets";
+
+// Dinamik olarak assets/galeri klasöründeki tüm görselleri oku
+const rawImages = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/galeri/*.{jpeg,jpg,png,gif,webp,avif,JPEG,JPG,PNG,WEBP,AVIF,GIF}",
+  { eager: true }
+);
+
+// Doğal sayısal sıralama (1, 2, ... 10, 11 ...)
+const sortedEntries = Object.entries(rawImages).sort(([pathA], [pathB]) => {
+  return pathA.localeCompare(pathB, undefined, { numeric: true, sensitivity: "base" });
+});
+
+// Resimleri optimize ederek galeri için hazırla
+const galleryItems = await Promise.all(
+  sortedEntries.map(async ([path, mod], index) => {
+    const rawImage = mod.default;
+    // Lightbox için yüksek çözünürlüklü optimize edilmiş görsel
+    const fullOptimized = await getImage({
+      src: rawImage,
+      width: 1920,
+      quality: 85,
+      format: "webp",
+    });
+
+    // Dosya adını temizle (1.JPG -> Fotoğraf 1 veya dosya ismi)
+    const rawFileName = path.split("/").pop() || "";
+    const cleanName = rawFileName.replace(/\.[^/.]+$/, "");
+    const title = !isNaN(Number(cleanName)) ? `MESTEK'26 Fotoğraf ${cleanName}` : cleanName;
+
+    return {
+      index,
+      rawFileName,
+      title,
+      imageMeta: rawImage,
+      fullSrc: fullOptimized.src,
+      fullWidth: fullOptimized.attributes.width,
+      fullHeight: fullOptimized.attributes.height,
+    };
+  })
+);
+---
+
+<Layout
+  title="Fotoğraf Galerisi"
+  description="1. Mesleki ve Teknik Eğitim Sempozyumu (MESTEK'26) etkinlik, oturum ve anı fotoğrafları galerisi."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-[#0B2545] to-[#134074] text-white py-14 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <nav class="flex items-center gap-2 text-xs sm:text-sm text-blue-200 mb-3" aria-label="Ekmek Kırıntısı">
+            <a href="/" class="hover:text-white transition-colors">Ana Sayfa</a>
+            <Icon name="chevron-right" class="w-3.5 h-3.5" />
+            <span class="text-white">Galeri</span>
+          </nav>
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              Fotoğraf Galerisi
+            </h1>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-blue-100 border border-white/20">
+              <Icon name="camera" class="w-3.5 h-3.5" />
+              <span>{galleryItems.length} Fotoğraf</span>
+            </span>
+          </div>
+          <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl leading-relaxed">
+            1. Mesleki ve Teknik Eğitim Sempozyumu (MESTEK'26) kapsamında gerçekleştirilen açılış, oturumlar, sunumlar ve özel anlara ait fotoğraf kareleri.
+          </p>
+        </div>
+        <div class="shrink-0 bg-white/10 p-3.5 rounded-2xl border border-white/20 hidden md:flex items-center justify-center">
+          <Icon name="camera" class="w-10 h-10 text-blue-200" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="py-12 sm:py-16 bg-slate-50 min-h-[60vh]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {galleryItems.length === 0 ? (
+        <div class="text-center py-20 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-50 text-[#0B2545] flex items-center justify-center">
+            <Icon name="image" class="w-8 h-8" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Henüz Fotoğraf Eklenmedi</h3>
+          <p class="text-sm text-slate-500 mt-1 max-w-md mx-auto">
+            Görseller <code class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-mono text-xs">src/assets/galeri</code> klasörüne eklendiğinde burada otomatik olarak listelenecektir.
+          </p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6" id="gallery-grid">
+          {galleryItems.map((item) => (
+            <button
+              type="button"
+              class="gallery-item group relative block w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 text-left cursor-pointer border border-slate-200/80 hover:border-blue-300"
+              data-index={item.index}
+              data-full-src={item.fullSrc}
+              data-title={item.title}
+              aria-label={`${item.title} - Büyütmek için tıklayın`}
+            >
+              <Image
+                src={item.imageMeta}
+                alt={item.title}
+                width={600}
+                height={450}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
+              />
+              <!-- Hover Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <div class="flex items-center justify-between text-white">
+                  <span class="text-xs font-semibold tracking-wide drop-shadow truncate pr-2">
+                    {item.title}
+                  </span>
+                  <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/30 group-hover:scale-110 transition-transform">
+                    <Icon name="camera" class="w-4 h-4 text-white" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Top-right corner tag (Subtle photo index) -->
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-black/40 backdrop-blur-md text-white/90 border border-white/20 group-hover:opacity-0 transition-opacity">
+                #{item.index + 1}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-between select-none p-3 sm:p-6 transition-opacity duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Fotoğraf Görüntüleyici"
+  >
+    <!-- Top Bar -->
+    <div class="w-full max-w-7xl flex items-center justify-between text-white z-20 py-2">
+      <div class="flex items-center gap-3">
+        <span id="lightbox-counter" class="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20">
+          1 / {galleryItems.length}
+        </span>
+        <span id="lightbox-title" class="text-xs sm:text-sm text-slate-300 truncate max-w-xs sm:max-w-md hidden sm:inline">
+          Fotoğraf
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a
+          id="lightbox-download"
+          href="#"
+          target="_blank"
+          download
+          class="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+          title="Orijinal Görseli Aç / İndir"
+        >
+          <Icon name="download" class="w-5 h-5" />
+        </a>
+        <button
+          id="lightbox-close"
+          type="button"
+          class="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white cursor-pointer"
+          aria-label="Kapat"
+        >
+          <Icon name="x" class="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Center Image Container with Navigation Arrows -->
+    <div id="lightbox-center-area" class="relative w-full flex-1 flex items-center justify-center overflow-hidden my-2">
+      <!-- Prev Button -->
+      <button
+        id="lightbox-prev"
+        type="button"
+        class="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3.5 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white"
+        aria-label="Önceki Fotoğraf"
+      >
+        <Icon name="chevron-left" class="w-5 h-5 sm:w-6 sm:h-6" />
+      </button>
+
+      <!-- Main Image Display -->
+      <div id="lightbox-img-container" class="relative max-w-full max-h-full flex items-center justify-center p-1 sm:p-4">
+        <!-- Loading spinner -->
+        <div id="lightbox-loader" class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-10 h-10 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
+        </div>
+        
+        <img
+          id="lightbox-img"
+          src=""
+          alt=""
+          class="max-h-[75vh] sm:max-h-[80vh] max-w-[95vw] sm:max-w-[85vw] object-contain rounded-lg shadow-2xl transition-opacity duration-200 opacity-0 select-none"
+        />
+      </div>
+
+      <!-- Next Button -->
+      <button
+        id="lightbox-next"
+        type="button"
+        class="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3.5 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white"
+        aria-label="Sonraki Fotoğraf"
+      >
+        <Icon name="chevron-right" class="w-5 h-5 sm:w-6 sm:h-6" />
+      </button>
+    </div>
+
+    <!-- Bottom Thumbnail Strip / Hint -->
+    <div class="w-full max-w-7xl flex flex-col items-center gap-2 z-20 pb-1">
+      <div class="text-[11px] text-slate-400 flex items-center gap-4">
+        <span class="hidden sm:inline">Klavye: ← Sol / → Sağ / Esc Kapat</span>
+        <span class="sm:hidden">Kaydırma: Sağa / Sola kaydırarak geçiş yapabilirsiniz</span>
+      </div>
+      
+      <!-- Mini Thumbnails Strip -->
+      <div
+        id="lightbox-thumbnails"
+        class="flex gap-2 overflow-x-auto max-w-full px-4 py-1.5 scrollbar-thin scrollbar-thumb-white/20"
+      >
+        {galleryItems.map((item) => (
+          <button
+            type="button"
+            class="lightbox-thumb shrink-0 w-12 h-10 sm:w-16 sm:h-12 rounded-lg overflow-hidden border-2 border-transparent hover:border-white/60 focus:outline-none transition-all duration-150 cursor-pointer opacity-50 hover:opacity-100"
+            data-index={item.index}
+            aria-label={`${item.title} fotoğrafını göster`}
+          >
+            <Image
+              src={item.imageMeta}
+              alt=""
+              width={100}
+              height={75}
+              quality={50}
+              format="webp"
+              class="w-full h-full object-cover pointer-events-none"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Client-side Lightbox script
+  function setupLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDownload = document.getElementById('lightbox-download') as HTMLAnchorElement;
+    const lightboxLoader = document.getElementById('lightbox-loader');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const thumbsContainer = document.getElementById('lightbox-thumbnails');
+    const thumbs = document.querySelectorAll<HTMLButtonElement>('.lightbox-thumb');
+    const items = document.querySelectorAll<HTMLButtonElement>('.gallery-item');
+
+    if (!items.length) return;
+
+    const galleryData = Array.from(items).map((el) => ({
+      index: Number(el.dataset.index),
+      fullSrc: el.dataset.fullSrc || '',
+      title: el.dataset.title || '',
+    }));
+
+    let currentIndex = 0;
+    let isOpen = false;
+
+    function updateView(index: number) {
+      if (index < 0) index = galleryData.length - 1;
+      if (index >= galleryData.length) index = 0;
+      currentIndex = index;
+
+      const current = galleryData[currentIndex];
+      if (!current) return;
+
+      // Show loader
+      if (lightboxLoader) lightboxLoader.style.display = 'flex';
+      if (lightboxImg) {
+        lightboxImg.classList.add('opacity-0');
+        lightboxImg.src = current.fullSrc;
+        lightboxImg.alt = current.title;
+
+        // If image is already cached by browser
+        if (lightboxImg.complete && lightboxImg.naturalWidth > 0) {
+          if (lightboxLoader) lightboxLoader.style.display = 'none';
+          lightboxImg.classList.remove('opacity-0');
+        }
+      }
+
+      if (lightboxCounter) {
+        lightboxCounter.textContent = `${currentIndex + 1} / ${galleryData.length}`;
+      }
+      if (lightboxTitle) {
+        lightboxTitle.textContent = current.title;
+      }
+      if (lightboxDownload) {
+        lightboxDownload.href = current.fullSrc;
+      }
+
+      // Update active thumbnail
+      thumbs.forEach((th, idx) => {
+        if (idx === currentIndex) {
+          th.classList.add('border-white', 'opacity-100', 'scale-105');
+          th.classList.remove('border-transparent', 'opacity-50');
+          th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          th.classList.remove('border-white', 'opacity-100', 'scale-105');
+          th.classList.add('border-transparent', 'opacity-50');
+        }
+      });
+    }
+
+    if (lightboxImg) {
+      lightboxImg.onload = () => {
+        if (lightboxLoader) lightboxLoader.style.display = 'none';
+        lightboxImg.classList.remove('opacity-0');
+      };
+    }
+
+    function openLightbox(index: number) {
+      isOpen = true;
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      updateView(index);
+    }
+
+    function closeLightbox() {
+      isOpen = false;
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+      if (lightboxImg) {
+        lightboxImg.src = '';
+        lightboxImg.classList.add('opacity-0');
+      }
+    }
+
+    function showPrev() {
+      updateView(currentIndex - 1);
+    }
+
+    function showNext() {
+      updateView(currentIndex + 1);
+    }
+
+    // Attach click to grid items
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        const idx = Number(item.dataset.index);
+        openLightbox(idx);
+      });
+    });
+
+    // Attach click to thumbnails
+    thumbs.forEach((th) => {
+      th.addEventListener('click', () => {
+        const idx = Number(th.dataset.index);
+        updateView(idx);
+      });
+    });
+
+    // Control buttons
+    closeBtn?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showPrev();
+    });
+    nextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNext();
+    });
+
+    // Close when clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (
+        target === lightbox || 
+        target.id === 'lightbox-center-area' || 
+        target.id === 'lightbox-img-container'
+      ) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (!isOpen) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      // Only handle horizontal swipes
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          showNext();
+        } else {
+          showPrev();
+        }
+      }
+    }
+  }
+
+  // Run on first load and page transitions
+  setupLightbox();
+  document.addEventListener('astro:page-load', setupLightbox);
+</script>

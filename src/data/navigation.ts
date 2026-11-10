@@ -29,6 +29,7 @@ export const navItems: NavItem[] = [
   },
   { name: "Katılım Payı", href: "/katilim-payi" },
   { name: "Hakkında", href: "/sempozyum-hakkinda" },
+  { name: "Galeri", href: "/galeri" },
   { name: "Ulaşım ve Konaklama", href: "/ulasim-ve-konaklama" },
   { name: "İletişim", href: "/iletisim" }
 ];
