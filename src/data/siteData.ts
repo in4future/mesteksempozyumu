@@ -378,6 +378,13 @@ export const sponsors = [
     logo: "/deep-zeka.svg",
     website: "",
     description: "Sempozyum Sponsoru"
+  },
+      {
+    name: "Durgunlar Otomotiv",
+    shortName: "durgunlar",
+    logo: "/durgunlar-otomotiv.png",
+    website: "",
+    description: "Sempozyum Sponsoru"
   }
 ];
 
